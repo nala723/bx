@@ -77,27 +77,26 @@
     animation: underlineExpand 0.5s forwards ease-out;
   }
 
-  .small-circle,
-  .big-circle {
+  .small-circle-wrapper,
+  .big-circle-wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .small-circle {
-    width: 76%;
+
+  .small-circle{
+    animation: circle 120s infinite linear;
+    width: 1150px;
     height: auto;
 
-    img {
-      animation: circle 20s infinite linear;
-    }
   }
-  .big-circle {
-    width: 112%;
-    height: auto;
+  .big-circle{
+    animation: circle 90s infinite linear;
+    width: 1600px;
+   height: auto;
   }
 
-  /* display: none; */
 }
 
 /****************************************인트로****************************************/
@@ -188,7 +187,7 @@
   height: 100%;
   overflow: hidden;
 
-  .back {
+  img {
     position: absolute;
     top: 50%;
     left: 50%;

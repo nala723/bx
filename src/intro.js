@@ -15,13 +15,20 @@ import { gsap } from "gsap";
 
 
 
-// gsap.from('.contents *',{
+gsap.from('.contents *',{
 //   stagger:0.3,
-//   delay:2,
-//   y:30,
-//   opacity:0
-// })
-
+  delay:1.5,
+  y:30,
+  opacity:0
+})
+// gsap.from('.big-circle-wrapper',{
+//     scale:1.5,
+//     opacity:0
+//   })
+//   gsap.from('.small-circle-wrapper',{
+//     scale:1.5,
+//     opacity:0
+//   })
 
 const enter = document.querySelector('.enter');
 
@@ -36,8 +43,12 @@ enter.addEventListener('click',()=>{
 
   const tl = gsap.timeline();
 
+  tl.to('.big-circle-wrapper',{
+    scale:1.5,
+    opacity:0
+  })
 
-  tl.to('.small-circle',{
+  tl.to('.small-circle-wrapper',{
     scale:1.5,
     opacity:0
   })
