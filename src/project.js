@@ -1,5 +1,5 @@
 import '../lib/smooth';
-import './styles/introduction.css';
+import './styles/project.css';
 
 
 

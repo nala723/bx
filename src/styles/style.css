@@ -1,4 +1,21 @@
 
+@keyframes underlineExpand {
+  0% {
+      width: 0;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+  100% {
+      width: 100%;
+      left: 0;
+      transform: translateX(0);
+  }
+}
+
+.alta{
+  font-family: alta, "Poppins", "Montserrat", "Arial", sans-serif;
+}
+
 .intro{
   width: 100vw;
   height: 100vh;
@@ -6,27 +23,138 @@
   left: 0;
   top: 0;
   z-index: 1000;
-  background-color:orange;
-  display: none;
+  background-color:white;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .contents{
+  color: #282828;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .logo{
+    width:7rem;
+    height: auto;
+  }
+
+  .title{
+    margin: 1.75rem 0 3.75rem 0;
+    width: 24.8rem;
+    height: auto;
+  }
+
+  .enter{
+    text-align: center;
+    display: inline-block;
+    font-size: 0.8rem;
+    color: #484848;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .enter::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -0.58rem; 
+    width: 0;
+    height: 1px; 
+    background-color:  #484848;
+    transform: translateX(-50%);
+    animation: underlineExpand 0.5s forwards ease-out;
 }
+
+  .small-circle,.big-circle{
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  }
+  .small-circle{
+    width: 76%;
+    height: auto;
+  }
+  .big-circle{
+    width: 112%;
+    height: auto;
+  }
+
+
+    display: none;
+}
+
+/****************************************인트로****************************************/
+
 
 .section01 {
 
-
   height: 100vh;
-
   
   header{
-    background-color: red;
+
+    width:100%;
+    height: auto;
+    position: fixed;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.7); /* 반투명 배경 */
+    backdrop-filter: blur(7px); /* 블러 효과 */
+
+  .gnb{
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    align-items: center;
+    color: #484848;
+    padding: 0 2.5rem 0 2.5rem;
+    height: 4.2rem;
+
+    .shop{
+      color: #484848;
+      font-size: 0.84rem;
+      font-weight: bold;
+      letter-spacing: -0.025em;
+    }
+    .logo{
+      width:8.6rem;
+      height: auto;
+    }
+    .hamburger{
+
+    width: 1.67rem;
+    height: 0.66rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 0.06rem;
+      background-color: #484848;
+      transition: all 0.3s ease-in-out;
   }
   
+  /* 마우스 오버 시 X로 변하는 효과 */
+  .hamburger:hover span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+  }
   
-
-
-
+  .hamburger:hover span:nth-child(2) {
+      opacity: 0; /* 가운데 줄 숨김 */
+  }
+  
+  .hamburger:hover span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+  }
+  }
+  
+  }
 
 }
 
@@ -36,20 +164,36 @@
 
 .menu{
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 4.2rem);
     background-color: dodgerblue;
     position: fixed;
     left: 0;
-    top: 0;
+    top: 4.2rem;
     z-index: 99999;
     display: none;
 }
 
 
 
+.background{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 
+  .back{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 253rem;
+    height: auto;
+  }
+  
 
-
+}
 
 
 
