@@ -8,10 +8,9 @@ import { gsap } from "gsap";
 
 // gsap.registerPlugin(ScrollTrigger,Draggable,MotionPathPlugin);
 
-// 1. 터미널 창에서 npm i 실행한다.
-// 2. 깃헙에 올린다.
+// 1. git pull
+// 2. 터미널 창에서 npm i 실행한다.
 // 3. npm run dev로 사이트를 연다.
-// 4. 보안 설정 다 수락하기
 // 5. 코딩 시작.
 
 
