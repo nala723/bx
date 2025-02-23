@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/styles/settings.css" />
     <link rel="stylesheet" href="/src/styles/style.css" />
+    <link rel="stylesheet" href="/src/styles/intro.css" />
     <script type="module" src="/src/intro.js"></script>
   </head>
   <body>
@@ -24,9 +25,11 @@
 
         <section class="section01">
           <header>
+
             <div class="gnb">
               <a href="#" class="shop">SHOP</a>
-              <img src="/logo.webp" class="logo" alt=""/>
+              <a href="home.html"><img src="/logo.webp" class="logo" alt=""/></a> 
+              <!-- 로고 클릭하면 홈(메인)으로 가려면..? -->
               <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -43,25 +46,55 @@
                   <img src="/lnb/project-word.webp" class="project" alt="">
                 </div>
                 <div class="about-wrapper">
-                  <img src="/lnb/about-word.webp"  class="about" alt="">
+                  <a href="about.html"><img src="/lnb/about-word.webp"  class="about" alt=""></a>
                 </div>
                 <div class="product-wrapper">
                   <img src="/lnb/product-word.webp" class="product" alt="">
                 </div>
               </div>
               <div class="photos">              
-                <div class="photo-home-wrapper">
+                <div class="photo-home-wrapper photo-wrapper">
                   <img src="/lnb/home.webp" alt=""/>
                 </div>
-                <div class="photo-project-wrapper">
+                <div class="photo-project-wrapper photo-wrapper">
                   <img src="/lnb/project.webp"  alt=""/></div>
-                <div class="photo-about-wrapper">
+                <div class="photo-about-wrapper photo-wrapper">
                   <img src="/lnb/about.webp"  alt=""/></div>
-                <div class="photo-product-wrapper">
+                <div class="photo-product-wrapper photo-wrapper">
                   <img src="/lnb/product.webp"  alt=""/></div>
               </div>
+              <div class="additional">
+                  <div class="info-box">
+                      <div class="address">
+                        <p>FRITZ HANSEN</p>
+                        <p>DENMARK</p> 
+                        <p>ALLERODVEJ8</p>
+                        <p>DK-3450 ALLEROD</p>
+                      </div>
+                      <div class="time">
+                        <p>MON - FRI</p>
+                        <p>9 AM - 4 PM</p>
+                      </div>
+                  </div>
+
+                  <div class="sns-box">
+                      <div class="facebook">
+                        <img src="/lnb/facebook.webp" alt="">
+                        <p>FACEBOOK</p>
+                      </div>
+                      <div class="instagram">
+                        <img src="/lnb/instagram.webp" alt="">
+                        <p>INSTAGRAM</p>
+                      </div>
+                      <div class="pinterest">
+                        <img src="/lnb/pinterest.webp" alt="">
+                        <p>PINTEREST</p>
+                      </div>
+                  </div>
             </div>
+
           </header>
+
           <div class="background">
             <div class="first-back-wrapper">
               <img src="/home/backimg-1.webp" class="back" alt=""/>
@@ -76,8 +109,10 @@
               <img src="/home/backimg-4.webp" class="back" alt="" />
             </div>
           </div>
+
         </section>
       </div>
     </div>
   </body>
 </html>
+

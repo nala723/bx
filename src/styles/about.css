@@ -1,0 +1,81 @@
+.section01{
+/* display: flex; */
+padding-left: 9.63rem;
+position: relative;
+.main-title-box{
+    display: flex;
+    align-items: flex-end;
+    padding-left: 9.31rem;
+    padding-top: 16.5rem;
+    position: relative;
+    z-index: 50;
+    .title-s{
+        font-size: 5rem;
+        font-weight: 600;
+        letter-spacing: -0.075em;
+    }
+    .title-l{
+        font-size: 23.13rem;
+        line-height: 0.65;
+        letter-spacing: -0.05em;
+    }
+    .story{
+        position: absolute;
+        right: 16.38rem;
+    }
+ }
+ .mid-words-box,.bottom-words-box{
+    color: #686868;
+    letter-spacing: -0.05em;
+ }
+ .mid-words-box{
+    margin-top: 10.38rem;
+    font-size: 1.13rem;
+    line-height: 1.2;
+ }
+ .bottom-words-box{
+    margin-top: 15.5rem;
+    font-size: 0.94rem;
+ }
+ .circle-arrow{
+    position: absolute;
+    right: 17.25rem;
+    top:46.69rem;
+ }
+ .photo{
+    position: absolute;
+ }
+ .photo-1{
+    top:22rem;
+    left:66rem;
+    z-index: 8;
+ }
+ .photo-2{
+    top:7.06rem;
+   left:41.56rem;
+ }
+ .photo-3{
+    top:8.06rem;
+    left:61.43rem;
+    z-index: 10;
+ }
+ .photo-4{
+    top:41.31rem;
+    left:50rem;
+    z-index: 8;
+ }
+ .photo-5{
+    top:19.63rem;
+    left:48.25rem;
+ }
+ .photo-6{
+    top:24.25rem;
+    left:26.25rem;
+    z-index: 9;
+ }
+ .photo-7{
+    top:37.31rem;
+    left:65.81rem;
+    z-index: 9;
+ }
+}

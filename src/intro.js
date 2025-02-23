@@ -13,22 +13,31 @@ import { gsap } from "gsap";
 // 3. npm run dev로 사이트를 연다.
 // 5. 코딩 시작.
 
+const tl = gsap.timeline();
+tl.from('.big-circle-wrapper',{
+  duration:1,
+  scale:0.5,
+  opacity:0
+})
 
-
-gsap.from('.contents *',{
-//   stagger:0.3,
+tl.from('.small-circle-wrapper',{
+  duration:1,
+  scale:1.5,
+  opacity:0
+},'-=1')
+tl.from('.contents *',{
+  stagger:0.3,
   delay:1.5,
   y:30,
   opacity:0
-})
-// gsap.from('.big-circle-wrapper',{
-//     scale:1.5,
-//     opacity:0
-//   })
-//   gsap.from('.small-circle-wrapper',{
-//     scale:1.5,
-//     opacity:0
-//   })
+},'-=2')
+
+// gsap.from('.contents *',{
+// //   stagger:0.3,
+//   delay:1.5,
+//   y:30,
+//   opacity:0
+// })
 
 const enter = document.querySelector('.enter');
 
@@ -44,14 +53,23 @@ enter.addEventListener('click',()=>{
   const tl = gsap.timeline();
 
   tl.to('.big-circle-wrapper',{
+    duration:1,
     scale:1.5,
     opacity:0
   })
 
   tl.to('.small-circle-wrapper',{
+    duration:1,
     scale:1.5,
     opacity:0
-  })
+  },'-=1')
+
+  tl.to('.contents *',{
+    stagger:0.3,
+    delay:1,
+    y:30,
+    opacity:0
+  },'-=2')
 
   tl.to(intro,{
     opacity:0,
