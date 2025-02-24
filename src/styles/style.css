@@ -1,5 +1,20 @@
+/* 공통 스타일 */
+
 .alta {
   font-family: alta, "Poppins", "Montserrat", "Arial", sans-serif;
+}
+.section-title-box{
+
+  .section-title{
+    font-size: 6.25rem;
+    letter-spacing: -0.075em;
+    line-height: 0.9;
+  }
+  .alta{
+    font-size: 7.13rem;
+    letter-spacing: -0.025em;
+    line-height: 0.7;
+  }
 }
 
   header {
