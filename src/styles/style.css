@@ -5,89 +5,86 @@
 }
 
 /* 섹션 타이틀 스타일 */
-.section-title-box{
-
-  .section-title{
+.section-title-box {
+  .section-title {
     font-size: 6.25rem;
     letter-spacing: -0.075em;
     line-height: 0.9;
   }
-  .alta{
+  .alta {
     font-size: 7.13rem;
     letter-spacing: -0.025em;
     line-height: 0.7;
   }
 }
 
-
 /* 헤더 */
 
-  header {
-    width: 100%;
-    height: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
+header {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.7); /* 반투명 배경 */
+  backdrop-filter: blur(7px); /* 블러 효과 */
+
+  .gnb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #484848;
+    padding: 0 3.75rem 0 3.75rem;
+    height: 6.25rem;
+    position: relative;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.7); /* 반투명 배경 */
-    backdrop-filter: blur(7px); /* 블러 효과 */
 
-    .gnb {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .shop {
       color: #484848;
-      padding: 0 3.75rem 0 3.75rem;
-      height: 6.25rem;
+      font-size: 1.13rem;
+      font-weight: bold;
+      letter-spacing: -0.025em;
+    }
+    .logo {
+      height: auto;
+      width: 11.4rem;
+    }
+    .hamburger {
+      width: 2.25rem;
+      height: 0.88rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
       position: relative;
-      z-index: 100;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 0.09rem;
+      background-color: #484848;
+      transition: all 0.3s ease-in-out;
+    }
 
+    /* 마우스 오버 시 X로 변하는 효과 */
+    .hamburger:hover span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
 
-      .shop {
-        color: #484848;
-        font-size: 1.13rem;
-        font-weight: bold;
-        letter-spacing: -0.025em;
-      }
-      .logo {
-        height: auto;
-        width: 11.4rem;
-      }
-      .hamburger {
-        width: 2.25rem;
-        height: 0.88rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        cursor: pointer;
-        position: relative;
-      }
-      .hamburger span {
-        display: block;
-        width: 100%;
-        height: 0.09rem;
-        background-color: #484848;
-        transition: all 0.3s ease-in-out;
-      }
+    .hamburger:hover span:nth-child(2) {
+      opacity: 0; /* 가운데 줄 숨김 */
+    }
 
-      /* 마우스 오버 시 X로 변하는 효과 */
-      .hamburger:hover span:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
-      }
-
-      .hamburger:hover span:nth-child(2) {
-        opacity: 0; /* 가운데 줄 숨김 */
-      }
-
-      .hamburger:hover span:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
-      }
+    .hamburger:hover span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
     }
   }
-
+}
 
 .menu {
   width: 100vw;
+  /* height: 100vh; */
   height: 0;
   background-color: white;
   position: fixed;
@@ -101,141 +98,167 @@
   justify-content: space-between;
   /* display: none; */
 
-  .menu-inner{
+  .menu-inner {
     width: 1920px;
     display: flex;
     /* align-items: flex-end; */
     /* justify-content: center; */
     position: relative;
 
-    .words{
-      
+    .words {
       position: absolute;
       top: 6.88rem;
       z-index: 20;
-   
-      img{
-       filter: invert(90%) sepia(1%) saturate(491%) hue-rotate(349deg) brightness(93%) contrast(84%);
-      }
-      .home{
-       filter: none;
-       margin-left: 40.68rem;
-       
-      }
-      .project{
-       margin-top: 1.88rem;
-       margin-left: 34rem;
-      }
-      .about{
-       margin-top: 0.25rem;
-       margin-left: 11.5rem;
-      }
-      .product{
-       margin-top: 1.8rem;
-       margin-left: 56.75rem;
-      }
-    }
-   
-    .photos{
-     .photo-wrapper{
-       position: absolute;
-       }
-   
-       .photo-home-wrapper{
-         top:3.13rem;
-         left:71.5rem;
-       }
-       .photo-project-wrapper{
-         top:12.19rem;
-         left:76.8rem;
-       }
-       .photo-about-wrapper{
-         top:5.88rem;
-         left:7.75rem;
-       }
-       .photo-product-wrapper{
-         top:17.69rem;
-         left:89.63rem;
-       }
-     /* display: none; */
-    }
-   
 
- }
- .additional{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  color:#686868;
 
-  .info-box{
-    margin-left:3.81rem;
-    margin-bottom: 6.25rem;
-    width: auto;
-    height: auto;
-    display: flex;
-    gap:2.06rem;
-    align-items: flex-end;
-    letter-spacing: -0.05em;
-    font-size: 0.94rem;
-    line-height: 1.5;
-    .address{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      & > div {
+        transition: all 0.3s;
+        opacity: 0.3;
+        overflow: hidden;
+      }
+
+      & > div:hover {
+        opacity: 1;
+      }
+
+      img {
+        transform:translateY(100%)
+        /* filter: invert(90%) sepia(1%) saturate(491%) hue-rotate(349deg) brightness(93%) contrast(84%); */
+      }
+      .home {
+        filter: none;
+        margin-left: 40.68rem;
+      }
+      .project {
+        margin-top: 1.88rem;
+        margin-left: 34rem;
+      }
+      .about {
+        margin-top: 0.25rem;
+        margin-left: 11.5rem;
+      }
+      .product {
+        margin-top: 1.8rem;
+        margin-left: 56.75rem;
+      }
     }
-    .time{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+
+    .photos {
+      .photo-wrapper {
+        position: absolute;
+      }
+
+      .photo-home-wrapper {
+        top: 3.13rem;
+        left: 71.5rem;
+      }
+      .photo-project-wrapper {
+        top: 12.19rem;
+        left: 76.8rem;
+      }
+      .photo-about-wrapper {
+        top: 5.88rem;
+        left: 7.75rem;
+      }
+      .photo-product-wrapper {
+        top: 17.69rem;
+        left: 89.63rem;
+        width: 379px;
+        height: 537px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .cover{
+          overflow: hidden;
+          width: 0;
+          height: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img{
+            transform:scale(1.2)
+          }
+        }
+      }
+      /* display: none; */
     }
   }
-
-  .sns-box{
+  .additional {
+    width: 100%;
     display: flex;
-    align-items: flex-end;
-    margin-bottom: 3.38rem;
-    margin-right: 3.75rem;
-    gap:5rem;
+    justify-content: space-between;
+    color: #686868;
 
-    .facebook,.instagram,.pinterest{
-      display: flex;
-      align-items: center;
-    }
-    img{
-      height: 0.88rem;
+    .info-box {
+      margin-left: 3.81rem;
+      margin-bottom: 6.25rem;
       width: auto;
-    }
-    .facebook{
-      img{
-        margin-right: 0.75rem;
+      height: auto;
+      display: flex;
+      gap: 2.06rem;
+      align-items: flex-end;
+      letter-spacing: -0.05em;
+      font-size: 0.94rem;
+      line-height: 1.5;
+      .address {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .time {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
     }
-    .instagram{
-      img{
-        margin-right: 0.5rem;
+
+    .sns-box {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 3.38rem;
+      margin-right: 3.75rem;
+      gap: 5rem;
+
+      .facebook,
+      .instagram,
+      .pinterest {
+        display: flex;
+        align-items: center;
       }
-    }
-    .pinterest{
-      img{
-        margin-right: 0.56rem;
+      img {
+        height: 0.88rem;
+        width: auto;
+      }
+      .facebook {
+        img {
+          margin-right: 0.75rem;
+        }
+      }
+      .instagram {
+        img {
+          margin-right: 0.5rem;
+        }
+      }
+      .pinterest {
+        img {
+          margin-right: 0.56rem;
+        }
       }
     }
   }
 }
-}
-
 
 /* 흐르는 가로,세로선 */
 
-.horizontal-line{
+.horizontal-line {
   width: 100%;
   height: 0.06rem;
   background-color: #484848;
-
 }
 
-.vertical-line{
+.vertical-line {
   width: 0.06rem;
   background-color: #484848;
 }
@@ -245,7 +268,7 @@
 .diamond {
   width: 1.38rem;
   height: 1.38rem;
-  background-color:#959596;
+  background-color: #959596;
   transform: rotate(45deg);
   display: inline-block;
 }

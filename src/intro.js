@@ -109,19 +109,39 @@ hamburger.addEventListener('click',()=>{
   
   
   if(!clicked){
-    gsap.to(menu,{
-      height:'100vh'
-    })
+    gsap.to(menu,{ height:'100vh' })
+    gsap.to('.words img',{ stagger:0.1, y:0 })
+
   }else{
     gsap.to(menu,{
       height:0
     })
+    gsap.to('.words img',{ y:'100%' })
   }
 
   clicked = !clicked
   
   
 })
+
+
+
+
+const wordsItem = document.querySelectorAll('.words > div');
+const photosItem = document.querySelectorAll('.photos > div');
+
+wordsItem.forEach((item,i)=>{
+  item.addEventListener('mouseenter',()=>{
+    gsap.to(photosItem[i].children,{width:379,height:537})
+    gsap.to(photosItem[i].children.children,{scale:1})
+  })
+  item.addEventListener('mouseleave',()=>{
+    gsap.to(photosItem[i].children,{width:0,height:0})
+    gsap.to(photosItem[i].children.children,{scale:1.2})
+  })
+})
+
+
 
 
 
