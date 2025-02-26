@@ -435,6 +435,12 @@ height: 100vh;
       justify-content: center;
       align-items: center;
       font-size: 100px;
+
+      video{
+         width: 100vw;
+         height: 100vh;
+         object-fit: cover;
+      }
 }
    }
 
@@ -620,13 +626,17 @@ height: 100vh;
    .moving-words-inner{
       width: 100%;
       height: auto;
+      padding: 8rem 0 13.75rem 0;
       .top-words-box{
          display: flex;
          font-size: 2rem;
+         color: #f5f0ea;
+         height: 8.25rem;
       }
-      /* .small-words{
-
-      } */
+      .small-words{
+         color:#cdc9c4;
+         font-size: 1.13rem;
+      }
       .moving-words-box{
          display: flex;
          flex-direction: column;
