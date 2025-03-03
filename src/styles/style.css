@@ -4,19 +4,6 @@
   font-family: alta, "Poppins", "Montserrat", "Arial", sans-serif;
 }
 
-/* 섹션 타이틀 스타일 */
-.section-title-box {
-  .section-title {
-    font-size: 6.25rem;
-    letter-spacing: -0.075em;
-    line-height: 0.9;
-  }
-  .alta {
-    font-size: 7.13rem;
-    letter-spacing: -0.025em;
-    line-height: 0.7;
-  }
-}
 
 /* 헤더 */
 
@@ -39,6 +26,7 @@ header {
     height: 6.25rem;
     position: relative;
     z-index: 100;
+    /* overflow: hidden; */
 
     .shop {
       color: #484848;
@@ -125,6 +113,8 @@ header {
         transform:translateY(100%)
         /* filter: invert(90%) sepia(1%) saturate(491%) hue-rotate(349deg) brightness(93%) contrast(84%); */
       }
+      
+     
       .home {
         filter: none;
         margin-left: 40.68rem;
@@ -144,11 +134,14 @@ header {
     }
 
     .photos {
+      
       .photo-wrapper {
         position: absolute;
+        /* opacity: 0; */
       }
 
       .photo-home-wrapper {
+        /* opacity: 1; */
         top: 3.13rem;
         left: 71.5rem;
       }
@@ -202,15 +195,18 @@ header {
       letter-spacing: -0.05em;
       font-size: 0.94rem;
       line-height: 1.5;
+  
       .address {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        opacity: 0;
       }
       .time {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        opacity: 0;
       }
     }
 
@@ -226,6 +222,7 @@ header {
       .pinterest {
         display: flex;
         align-items: center;
+        opacity: 0;
       }
       img {
         height: 0.88rem;
@@ -271,4 +268,42 @@ header {
   background-color: #959596;
   transform: rotate(45deg);
   display: inline-block;
+}
+
+/* 섹션 타이틀 스타일 */
+.section-title-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: auto;
+    gap:2.13rem;
+    overflow: hidden;
+        .section-title-main{
+         display: flex;
+         align-items: center;
+         gap:3.25rem;
+               
+                 
+  .section-title {
+    font-size: 6.25rem;
+    letter-spacing: -0.075em;
+    line-height: 0.9;
+    
+  }   
+  .alta {
+    font-size: 7.13rem;
+    letter-spacing: -0.025em;
+    line-height: 0.7;
+  }
+  } 
+.horizontal-line{
+  height: 0.13rem;
+}
+}
+.section-title-sub{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.5;
+  color: #686868;
 }

@@ -13,6 +13,7 @@ import { gsap } from "gsap";
 // 3. npm run dev로 사이트를 연다.
 // 5. 코딩 시작.
 
+
 const tl = gsap.timeline();
 tl.from('.big-circle-wrapper',{
   duration:1,
@@ -25,19 +26,17 @@ tl.from('.small-circle-wrapper',{
   scale:1.5,
   opacity:0
 },'-=1')
-tl.from('.contents *',{
+tl.from('.contents img,.enter > p',{
   stagger:0.3,
   delay:1.5,
   y:30,
-  opacity:0
+  opacity:0,
+  // ease: "power1.out"
 },'-=2')
+tl.from('.line',{
+  scale:0
+},'-=0.5')
 
-// gsap.from('.contents *',{
-// //   stagger:0.3,
-//   delay:1.5,
-//   y:30,
-//   opacity:0
-// })
 
 const enter = document.querySelector('.enter');
 
@@ -78,22 +77,14 @@ enter.addEventListener('click',()=>{
       intro.remove();
 
       gsap.from('.background img',{
+        duration:2,
         opacity: 0,
         stagger: 0.3  
-      })
+      },)
     }
   })
 })
 
-
-
-
-
-gsap.from('.background img',{
-  duration:2,
-  opacity: 0,
-  stagger: 0.3  
-})
 
 
 
@@ -111,14 +102,18 @@ hamburger.addEventListener('click',()=>{
   if(!clicked){
     gsap.to(menu,{ height:'100vh' })
     gsap.to('.words img',{ stagger:0.1, y:0 })
+    gsap.to('.info-box *',{ stagger:0.1, delay:0.3, opacity:1})  
+    gsap.to('.sns-box *',{ stagger:0.1, delay:1, opacity:1}) 
 
   }else{
     gsap.to(menu,{
       height:0
     })
     gsap.to('.words img',{ y:'100%' })
-  }
+    gsap.to('.info-box *',{opacity:0})  
+    gsap.to('.sns-box *',{ opacity:0}) 
 
+  }
   clicked = !clicked
   
   

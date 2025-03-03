@@ -197,7 +197,7 @@ select {
 }
 
 section {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   width: 100vw;
   height: auto;
   /* height: 100vh; */
@@ -206,4 +206,8 @@ section {
 
 p{
   margin: 0;
+}
+
+*{
+  box-sizing: border-box;
 }
