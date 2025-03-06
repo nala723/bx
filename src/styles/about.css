@@ -1,8 +1,3 @@
-section{
-   display: flex;
-  justify-content: center;
-}
-
 .main-sc{
 height: 300vh;
 .main-innner{
@@ -256,62 +251,66 @@ top:0;
          width: 100%;
          background-color: #8c8680;
          /* padding: 3.19rem 3.75rem  1.75rem 3.75rem; */
-         padding: 3.19rem 0  0  0;
+         padding: 2.66vw 3.13vw  0  3.13vw;
          display: flex;
          flex-direction: column;
          align-items: center;
 
          .top-content{
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-size: 4.63rem;
-            letter-spacing: -0.075em;
+            /* font-size: 4.63rem; */
+            font-size: 3.86vw;
+            letter-spacing: -0.08em;
             color: #ece2d9;
             font-weight: 300;
             /* color: #a69f98; 비활성화 상태의 색*/
-            word-spacing: 2.5rem;
+            /* word-spacing: 2.08vw; */
             line-height: 0.8;
-            gap:0.75rem;
+            gap:0.625vw;
             
             div{
                display: flex;
                align-items: center;
+               gap:2.08vw;
             }
             .alta{
-               font-size: 5.25rem;
-               letter-spacing: -0.035em;
+               /* font-size: 5.25rem; */
+               font-size: 4.38vw;
+               letter-spacing: -0.04em;
                font-weight:400;
+               gap:2.08vw;
                /* word-spacing: 2.5rem; */
             }
-            .fritzhansen{
-               word-spacing: normal;
-               >span{
-                  width: 3.25rem;
+
+            .diamond-space{
+               gap:1.56vw;
+               .diamond{
+                  background-color: #ece2d9;
+                  width: 0.68vw;
+                  height: 0.68vw;
                }
             }
-            .diamond{
-               background-color: #ece2d9;
-               width: 0.81rem;
-               height: 0.81rem;
-               margin: 0 1.87rem 0 1.87rem;
-            }
-            .firth{
-               >span{
-                  margin: 0 1rem 0 1rem;
-               }
-            }
+
+   
          }
 
          .history-box{
-            width: calc(100% - 7.5rem);
-            margin-top: 1.75rem;
-            padding-bottom: 34.75rem;
+            width: 100%;
+            margin-top: 1.49vw;
+            padding-bottom: 28.96vw;
             position: relative;
             .img-box{
                >div{
                   position: absolute;
                   z-index: 10;
+                  
+                  img{
+                     width: 18.75vw;
+                     height: auto;
+                  }
                }
 
                .center{
@@ -325,68 +324,91 @@ top:0;
                   right: 0;
                }
                .img1933,.img2011{
-                  left:8.38rem;
+                  left:6.98vw;
                   /* 8.44 */
                }
                .img1943,.img2016{
-                  right: 8.38rem;
+                  right: 6.98vw;
                }
                
                .img1876{
-                  top:21.19rem;
+                  top:17.66vw;
                }
                .img1918,.img1921{
-                  top:40.25rem;
+                  top:33.54vw;
                }
                .img1931{
-                  top:78.06rem;
+                  top:65.05vw;
                } 
                .img1933,.img1943{
-                  top:97.44rem;
+                  top:81.2vw;
                } 
                .img1954{
-                  top:135.38rem;
+                  top:112.82vw;
                }
                .img1955,.img1974{
-                  top:154.38rem;
+                  top:128.65vw;
                }
                .img1988{
-                  top:192.31rem;
+                  top:160.26vw;
                }
                .img2011,.img2016{
-                  top:211.25rem;
+                  top:176.04vw;
                }
 
             }
          
          .year-box{
             font-weight: 500;
-            font-size: 8.5rem;
+            font-size:7.08vw;
             line-height: 1;
             letter-spacing: 0;
             color: #a69f98;
             >span{
                position: absolute;
             }
-            .center:nth-child(6n+1){
-               left:33.13rem;
+            .centerLeft{
+               left:27.61vw;
             }
-            .year1918,.year1955{
-               left:16.06rem;
+            .centerRight{
+               right:28.86vw;
             }
-            .year1921,.year1974{
-               right: 16.06rem;
+            .inLeft{
+               left:13.38vw;
             }
+            .inRight{
+               right: 13.38vw;
+            }
+            .outLeft{
+               left:0;
+            }
+            .outRight{
+               right:0;
+            }
+
             .year1878{
-               top:48.38rem;
+               top:39.22vw;
             }
             .year1918,.year1921{
-               top:67.38rem;
+               top:55.05vw;
             }
             .year1931{
-               top:105.25rem;
-               /* top:103.94rem; */
-               right:34.63rem;
+               top:86.62vw;
+            }
+            .year1933,.year1943{
+               top:102.40vw;
+            }
+            .year1954{
+               top:133.91vw;
+            }
+            .year1955,.year1974{
+               bottom: 57.19vw;
+            }
+            .year1988{
+               bottom:25.63vw;
+            }
+            .year2011,.year2016{
+               bottom: 9.90vw;
             }
          
          }
@@ -395,17 +417,17 @@ top:0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap:1rem;
+            gap:0.83vw;
 
             .diamond-box{
                display: flex;
                flex-direction: column;
                align-items: center;
-               gap:0.6rem;
+               gap:0.5vw;
                .diamond{
                   background-color: #ece2d9;
-                  width: 0.94rem;
-                  height: 0.94rem;
+                  width: 0.78vw;
+                  height: 0.78vw;
                }
 
             }
@@ -418,23 +440,21 @@ top:0;
                      display: flex;
                      flex-direction: column;
                   }
-                  .vertical{
-                     width:0.06rem;
-                     height: 42.19rem;
+                  .vertical-line{
+                     height:35.16vw;
                      background-color: #fcf8f4;
                   }
-                  .vertical:nth-of-type(1){
-                     height: 32.19rem;   
+                  .vertical-line:nth-of-type(1){
+                     height: 26.83vw;
+
                   }
 
                      .long{
-                        width: 90.38rem;
-                        height: 0.06rem;
+                        width: 75.32vw;
                         background-color: #fcf8f4;
                      }
                      .short{
-                        width: 73.38rem;
-                        height: 0.06rem;
+                        width: 61.15vw;
                         background-color: #fcf8f4;
                      }
 
@@ -442,10 +462,9 @@ top:0;
                      display: flex;
                      width: 100%;
                      justify-content: space-between;
-                     >span{
+                     .vertical-line{
                         background-color: #fcf8f4;
-                        width:0.06rem;
-                        height: 14.69rem;
+                        height: 12.24vw;
                      }
                   }
                }
@@ -458,20 +477,49 @@ top:0;
 }
 
 .video-sc{
-   .video-inner{
+   .video-sc-inner{
       width: 100%;
       height: auto;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      font-size: 100px;
+   .video-box{
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      top:0;
+      left:0;
 
-      video{
-         width: 100vw;
-         height: 100vh;
+       video{
+         width: 100%;
+         height: 100%;
          object-fit: cover;
       }
+      /* 재생 버튼 (초기 상태) */
+         .button-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 104px;
+            height: 104px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px); /* 배경 블러 */
+            background: rgba(255, 255, 255, 0.1); /* 반투명 */
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+         }
+         /* 비디오가 재생되면 버튼 숨기기 */
+         .hidden {
+            display: none;
+         }
+
+   }   
+     
       .vertical-line{
          height: 7.19rem;
       }
@@ -573,30 +621,16 @@ top:0;
       position: relative;;
 
               
-      .vertical-line-box,.circle-line{
-         position: absolute;
-         left:50%;
-         transform: translateX(-50%);
-      }
+
       .vertical-line-box{
-         top:0;
-         display: flex;
-         flex-direction: column;
-         align-items: center;
+   
          .top-line{
             height: 16.69rem;
          }
       }
       
-      .circle-line{
-         top: 6.25rem;
-         clip-path: inset(0 0 50% 0);
-      }
 
       .title-box{
-         display: flex;
-         flex-direction: column;
-         align-items: center;
          gap:5.81rem;
 
          .section-title-sub{
@@ -797,21 +831,16 @@ top:0;
       padding: 33.5rem 0 18.13rem 0;
       position: relative;
 
-      .vertical-line-box,.bottom-line,.circle-line{
+      .bottom-line{
          position: absolute;
          left:50%;
          transform: translateX(-50%);
       }
       .circle-line{
          top:9.81rem;
-         clip-path: inset(0 0 50% 0);
       }
 
       .vertical-line-box{
-         top:0;
-         display: flex;
-         flex-direction: column;
-         align-items: center;
          .top-line{
             height: 29.13rem;
          }
@@ -834,10 +863,7 @@ top:0;
             gap:6rem;
 
             .title-box{
-               display: flex;
-               flex-direction: column;
-               align-items: center;
-               gap:3.56rem;
+
                .section-title-box{
                   .section-title-main{
                      display: flex;
@@ -907,17 +933,13 @@ top:0;
       padding: 2.125rem 3.75rem 0 3.75rem;
       gap:17rem;
 
-      .top-line,.vertical-line-box{
+      .top-line{
          top:0;
          position: absolute;
          left:50%;
          transform: translateX(-50%);
       }
       .vertical-line-box{
-         
-         display: flex;
-         flex-direction: column;
-         align-items: center;
          gap:0.75rem;
          .vertical-line{
             height: 19.56rem;

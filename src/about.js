@@ -183,4 +183,23 @@ ScrollTrigger.create({
 })
 
 
+const video = document.getElementById('video');
+const playButton = document.getElementById('playButton');
+
+playButton.addEventListener('click', () => {
+  if (video.paused) {
+    video.play(); // 동영상 재생
+    playButton.classList.add('hidden'); // 버튼 숨김
+  }
+  else if (video.paly){
+    video.paused();
+    playButton.classList.remove('hidden');
+}
+  } );
+
+// 동영상이 끝나면 버튼 다시 보이게
+video.addEventListener('ended', () => {
+  playButton.classList.remove('hidden');
+});
+
 markers();

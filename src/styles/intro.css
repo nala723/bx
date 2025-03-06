@@ -16,9 +16,7 @@
     z-index: 1000;
     background-color: white;
     overflow: hidden;
-    display: flex;
-    display: none;
-    justify-content: center;
+    /* display: none; */
     align-items: center;
   
     .contents {

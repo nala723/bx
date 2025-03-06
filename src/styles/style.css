@@ -4,6 +4,12 @@
   font-family: alta, "Poppins", "Montserrat", "Arial", sans-serif;
 }
 
+section {
+  display: flex;
+  justify-content: center;
+}
+
+
 
 /* 헤더 */
 
@@ -270,7 +276,33 @@ header {
   display: inline-block;
 }
 
+/* 곡선-세로선 교차 */
+.vertical-line-box,.circle-line{
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+}
+.vertical-line-box{
+  top:0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle-line{
+  top: 6.25rem;
+  clip-path: inset(0 0 50% 0);
+}
+
 /* 섹션 타이틀 스타일 */
+
+.title-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:3.56rem;
+}
+
 .section-title-box {
     display: flex;
     align-items: center;
@@ -298,8 +330,9 @@ header {
   } 
 .horizontal-line{
   height: 0.13rem;
+ }
 }
-}
+
 .section-title-sub{
   display: flex;
   flex-direction: column;
