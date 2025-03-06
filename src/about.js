@@ -75,7 +75,8 @@ tl.from('.title-l',{
 },'-=0.3')
 tl.from('.mid-words-box,.bottom-words-box,.circle-arrow',{
   stagger:0.1,
-  opacity:0
+  opacity:0,
+  
 })
 tl.from('.shop,.logo,.hamburger',{
   opacity:0
@@ -91,7 +92,7 @@ card.to('.photo-box > div:nth-child(3)',{ x:600, y:-400,opacity:0,duration:6,eas
 card.to('.photo-box > div:nth-child(4)',{ x:600, y:400,opacity:0,duration:5,ease: "sine.inOut" },4)
 card.to('.photo-box > div:nth-child(1)',{ x:600, y:-400,opacity:0,duration:4,ease: "sine.inOut" },5)
 card.to('.photo-box > div:nth-child(5)',{ x:-600, y:-400,opacity:0,duration:4,ease: "sine.inOut"},6)
-// card.to('.mid-words-box,.bottom-words-box,.circle-arrow',{opacity:0},7)
+card.to('.blink',{opacity:0},7)
 
 
 
@@ -108,6 +109,7 @@ ScrollTrigger.create({
 
 
 const introduce = gsap.timeline();
+/* default: duration:0.5 */
 
 introduce.from('.section-title-main *',{y:200},0)
 introduce.from('.section-title-box .horizontal-line ',{scale:0},0.2)
@@ -116,8 +118,11 @@ introduce.from('.introduce-img',{clipPath: 'inset(50%)'},0.4)
 // introduce.from('.center-content > div:nth-child(1)',{left:0},0,0)
 // introduce.from('.center-content > div:nth-child(3)',{right:0},0)
 // introduce.from('.left-content,.right-content',{y:200},0)
+
+
+
 const introduceBottom = gsap.timeline();
-introduceBottom.from('.diamond',{duration: 1, opacity:0},0.5)
+introduceBottom.from('.diamond',{duration: 0.2, opacity:0},0.5)
 introduceBottom.from('.center-content > div:nth-child(1)',{duration: 1, scale:0},0.7)
 introduceBottom.from('.center-content > div:nth-child(3)',{duration: 1, scale:0},0.7)
 introduceBottom.from('.left-content,.right-content',{duration: 1, y:200},0.8)
@@ -136,8 +141,8 @@ ScrollTrigger.create({
 
 ScrollTrigger.create({
   trigger: '.introduce-sc .sub-contents-box',
-  start: '+=500',
-  end: '+=600',
+  start: '900px top',
+  end: '+=500',
   animation: introduceBottom,
   // pin: true,
   // pinSpacing: false,
@@ -181,6 +186,34 @@ ScrollTrigger.create({
   // markers: true,
   scrub: 1,
 })
+
+
+
+// top-content
+
+// .history-sc
+
+
+const history = gsap.timeline();
+
+history.from('.top-content span',{stagger:0.1,opacity:0.2})
+
+ScrollTrigger.create({
+  trigger: '.history-sc',
+  start: 'top center',
+  // start: 'top top',
+  end: '+=300',
+  animation: history,
+  // pin: true,
+  // pinSpacing: false,
+  // markers: true,
+  scrub: 1,
+})
+
+
+
+
+
 
 
 const video = document.getElementById('video');
