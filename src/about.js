@@ -365,8 +365,8 @@ environment.to('.environment-sc .circle', {
   ease: "power2.out"
 },0.1);
 environment.from('.environment-sc .section-title-main *',{duration:2,y:200},1)
-environment.from('.environment-sc .section-title-box .horizontal-line ',{duration:2, scale:0},2.5)
-environment.from('.environment-sc .section-title-sub',{duration:2, y:200},2.7)
+environment.from('.environment-sc .section-title-box .horizontal-line ',{duration:2, scale:0},2)
+environment.from('.environment-sc .section-title-sub',{duration:1, y:200},2.3)
 environment.from('.environment-sc .detail >div',{duration:2, stagger:0.2, y:300},2.9)
 environment.from('.environment-sc img',{duration:2, stagger: {
   each: 0.1,   
@@ -406,7 +406,7 @@ ScrollTrigger.create({
   end: '+=1200',
   animation:  footer,
   //  pin: true,
-  markers: true,
+  // markers: true,
   scrub: 1,
 })
 
