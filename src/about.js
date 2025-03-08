@@ -1,12 +1,12 @@
 import './styles/about.css';
 import { markers } from "../lib/smooth";
-
+import './header'
 import { gsap } from "gsap";
-// import { Draggable } from "gsap/Draggable";
+import { Draggable } from "gsap/Draggable";
 // import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger,Draggable);
 
 // 1. git pull
 // 2. 터미널 창에서 npm i 실행한다.
@@ -304,6 +304,13 @@ designer.from('.designer-sc .section-title-box .horizontal-line ',{duration:2, s
 designer.from('.designer-sc .section-title-sub',{duration:2, y:200},2.7)
 designer.from('.designers-inner',{duration:4,left:"100vw"},2.9)
 
+
+
+Draggable.create(".drag", {
+  type: "x",
+  bounds: ".designers-box"
+});
+
 ScrollTrigger.create({
   trigger: '.designer-sc-inner',
   start: 'top bottom',
@@ -395,18 +402,18 @@ ScrollTrigger.create({
 const footer = gsap.timeline();
 
 footer.from('.footer-sc .top-line',{scale:0})
-footer.from('.footer-sc .title *',{duration:1,stagger:0.2,y:-1000},0.2)
+footer.from('.footer-sc .title *',{duration:1,stagger:0.2,y:-1000})
 footer.to('.footer-sc .vertical-line',{scaleY:1},2)
-footer.from('.footer-sc .diamond',{stagger:0.2,opacity:0},2.4)
-footer.from('.footer-sc .sns-box,.footer-sc .info,.footer-sc .arrow-box',{stagger:0.2,opacity:0},3)
+footer.from('.footer-sc .diamond',{stagger:0.2,opacity:0})
+footer.from('.footer-sc .sns-box,.footer-sc .info,.footer-sc .arrow-box',{stagger:0.2,opacity:0})
 
 ScrollTrigger.create({
   trigger: '.footer-sc-inner',
   start: 'top bottom',
-  end: '+=1200',
+  end: 'center center',
   animation:  footer,
   //  pin: true,
-  // markers: true,
+  markers: true,
   scrub: 1,
 })
 

@@ -1,7 +1,7 @@
 /* 공통 스타일 */
 
 .alta {
-  font-family: alta, "Poppins", "Montserrat", "Arial", sans-serif;
+  font-family: 'alta';
 }
 
 section {
@@ -80,6 +80,7 @@ header {
   width: 100vw;
   /* height: 100vh; */
   height: 0;
+  
   background-color: white;
   position: fixed;
   left: 0;
@@ -170,9 +171,10 @@ header {
 
         .cover{
           overflow: hidden;
-          width: 0;
-          height: 0;
+          /* width: 0; */
+          /* height: 0; */
           display: flex;
+          clip-path: inset(50%);
           justify-content: center;
           align-items: center;
 
