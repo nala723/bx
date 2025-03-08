@@ -885,9 +885,28 @@ top:0;
    background-color: #fbf9f5;
    .environment-sc-inner{
       display: flex;
+      flex-direction: column;
       width: 100%;
       padding: 33.5rem 0 18.13rem 0;
       position: relative;
+
+      .semiCircle-box{
+         top:9.81rem;
+         .semiCircle-left,.semiCircle-right{
+              > img{
+            transform: translate(0px, 0px) !important;
+            }
+         }
+      
+      }
+
+
+      .vertical-line-box{
+         .top-line{
+            height: 29.13rem;
+         }
+ 
+      }
 
       .bottom-line{
          position: absolute;
@@ -897,15 +916,6 @@ top:0;
          
          left:50%;
          transform: translateX(-50%) scaleY(0);
-      }
-      .circle-line{
-         top:9.81rem;
-      }
-
-      .vertical-line-box{
-         .top-line{
-            height: 29.13rem;
-         }
       }
 
       .contents{

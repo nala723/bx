@@ -293,12 +293,8 @@ ScrollTrigger.create({
 const designer = gsap.timeline();
 
 designer.to('.designer-sc .top-line',{scaleY:1})
-designer.from('.designer-sc .diamond',{opacity:0})
-designer.to('.designer-sc .circle', {
-  strokeDashoffset: 0, // 가운데에서 양옆으로 퍼지게 //<-----잘 안됨됨
-  duration: 3,
-  ease: "power2.out"
-},0.1);
+designer.from('.designer-sc .diamond',{duration:1,opacity:0},0.4)
+designer.to('.designer-sc .semiCircle-right',{duration:1,width:"100%"},0.2)
 designer.from('.designer-sc .section-title-main *',{duration:2,y:200},1)
 designer.from('.designer-sc .section-title-box .horizontal-line ',{duration:2, scale:0},2.5)
 designer.from('.designer-sc .section-title-sub',{duration:2, y:200},2.7)
@@ -308,13 +304,14 @@ designer.from('.designers-inner',{duration:4,left:"100vw"},2.9)
 
 Draggable.create(".drag", {
   type: "x",
-  bounds: ".designers-box"
+  bounds: ".designers-box",
+  inertia: true,
 });
 
 ScrollTrigger.create({
   trigger: '.designer-sc-inner',
-  start: 'top bottom',
-  end: '+=1600',
+  start: 'top center',
+  end: '+=1000',
   animation:  designer,
   // markers: true,
   scrub: 1,
@@ -365,12 +362,8 @@ ScrollTrigger.create({
 const environment = gsap.timeline();
 
 environment.to('.environment-sc .top-line',{scaleY:1})
-environment.from('.environment-sc .diamond',{opacity:0})
-environment.to('.environment-sc .circle', {
-  strokeDashoffset: 0, // 가운데에서 양옆으로 퍼지게 //<-----잘 안됨됨
-  duration: 3,
-  ease: "power2.out"
-},0.1);
+environment.from('.environment-sc .diamond',{duration:1,opacity:0})
+environment.to('.environment-sc .semiCircle-right',{duration:1,width:"100%"},0.2)
 environment.from('.environment-sc .section-title-main *',{duration:2,y:200},1)
 environment.from('.environment-sc .section-title-box .horizontal-line ',{duration:2, scale:0},2)
 environment.from('.environment-sc .section-title-sub',{duration:1, y:200},2.3)
@@ -391,8 +384,8 @@ environment.to('.environment-sc .bottom-line',{duration:1.5,scaleY:1},4.6)
 
 ScrollTrigger.create({
   trigger: '.environment-sc-inner',
-  start: 'top bottom',
-  end: '+=3200',
+  start: 'top center',
+  end: '+=2600',
   animation:  environment,
   // markers: true,
   scrub: 1,
@@ -401,29 +394,21 @@ ScrollTrigger.create({
 
 const footer = gsap.timeline();
 
-footer.from('.footer-sc .top-line',{scale:0})
-footer.from('.footer-sc .title *',{duration:1,stagger:0.2,y:-1000})
+footer.from('.footer-sc .top-line',{duration:1,scale:0})
+footer.from('.footer-sc .title *',{duration:6,stagger:2,y:-1000})
 footer.to('.footer-sc .vertical-line',{scaleY:1},2)
 footer.from('.footer-sc .diamond',{stagger:0.2,opacity:0})
 footer.from('.footer-sc .sns-box,.footer-sc .info,.footer-sc .arrow-box',{stagger:0.2,opacity:0})
 
 ScrollTrigger.create({
   trigger: '.footer-sc-inner',
-  start: 'top bottom',
-  end: 'center center',
+  start: 'top center',
+  end: 'bottom bottom',
   animation:  footer,
   //  pin: true,
-  markers: true,
+  // markers: true,
   scrub: 1,
 })
 
-
-
-
-  // Draggable.create(".designer", {
-  //   type: "x",
-  //   bounds: ".designers-box", // 슬라이드 영역 제한
-  //   inertia: true, // 관성 효과로 부드럽게 멈춤
-  // });
-
+                                
 markers();

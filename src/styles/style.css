@@ -281,7 +281,7 @@ header {
 }
 
 /* 곡선-세로선 교차 */
-.vertical-line-box,.circle-line{
+.vertical-line-box,.semiCircle-box{
   position: absolute;
   left:50%;
   transform: translateX(-50%);
@@ -293,23 +293,19 @@ header {
   align-items: center;
 }
 
-.circle-line{
+.semiCircle-box{
   top: 6.25rem;
-  clip-path: inset(0 0 50% 0);
-  width: 140rem;
-  height: 140rem;
-  overflow: visible;
-
-
-  .circle{
-    stroke: #484848;
-    stroke-width: 0.06;
-    fill:none;
-    stroke-dasharray: 440rem;
-    stroke-dashoffset: 220rem;
-    stroke-linecap : round;
-
+  width: 2239px;
+  display: flex;
+  align-items: flex-start;
+  .semiCircle-wrapper{
+    width: 100%;
   }
+   .semiCircle-right{
+    width: 0;
+    overflow: hidden;
+   }
+
 }
 
 /* 섹션 타이틀 스타일 */

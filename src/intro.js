@@ -16,8 +16,24 @@ import { gsap } from "gsap";
 // 5. 코딩 시작.
 
 
-const scene = document.querySelector('.first-back-wrapper');
-const parallax = new Parallax(scene);
+const scene01 = document.querySelector('.first-back-wrapper');
+const scene02 = document.querySelector('.second-back-wrapper');
+const scene03 = document.querySelector('.third-back-wrapper');
+const scene04 = document.querySelector('.forth-back-wrapper');
+const parallax01 = new Parallax(scene01);
+const parallax02 = new Parallax(scene02);
+const parallax03 = new Parallax(scene03);
+const parallax04 = new Parallax(scene04);
+
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   var scene = document.getElementById("parallax-container");
+//   var parallaxInstance = new Parallax(scene, {
+//     relativeInput: true, // 상대적 움직임
+//     clipRelativeInput: true, // 컨테이너 영역 내에서만 작동
+//   });
+// });
+
 
 
 const tl = gsap.timeline();
@@ -82,6 +98,7 @@ enter.addEventListener('click',()=>{
       
       intro.remove();
 
+      gsap.to('.background',{opacity:1})
       gsap.from('.background img',{
         duration:2,
         opacity: 0,
