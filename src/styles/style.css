@@ -259,22 +259,22 @@ header {
 
 .horizontal-line {
   width: 100%;
-  height: 0.06rem;
+  height: 0.05vw;
   background-color: #484848;
 }
 
 .vertical-line {
-  width: 0.06rem;
+  width: 0.05vw;
   background-color: #484848;
-  transform: scaleY(0);
-  transform-origin: top;
+  /* transform: scaleY(0);
+  transform-origin: top; */
 }
 
 /* 다이아몬드 */
 
 .diamond {
-  width: 1.38rem;
-  height: 1.38rem;
+  width: 0.813vw;
+  height: 0.813vw;
   background-color: #959596;
   transform: rotate(45deg);
   display: inline-block;
@@ -294,12 +294,15 @@ header {
 }
 
 .semiCircle-box{
-  top: 6.25rem;
-  width: 2239px;
+  top: 5.21vw;
+  width: 116.62vw;
   display: flex;
   align-items: flex-start;
   .semiCircle-wrapper{
     width: 100%;
+    img{
+      width: 100%;
+    }
   }
    .semiCircle-right{
     width: 0;
@@ -314,7 +317,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap:3.56rem;
+  gap:2.97vw;
   overflow: hidden;
 }
 
@@ -323,28 +326,28 @@ header {
     align-items: center;
     flex-direction: column;
     width: auto;
-    gap:2.13rem;
+    gap:1.78vw;
     overflow: hidden;
         .section-title-main{
          display: flex;
          align-items: center;
-         gap:3.25rem;
+         gap:2.71vw;
                
                  
   .section-title {
-    font-size: 6.25rem;
+    font-size: 5.21vw;
     letter-spacing: -0.075em;
     line-height: 0.9;
     
   }   
   .alta {
-    font-size: 7.13rem;
+    font-size: 5.94vw;
     letter-spacing: -0.025em;
     line-height: 0.7;
   }
   } 
 .horizontal-line{
-  height: 0.13rem;
+  height:0.11vw;
  }
 }
 
@@ -354,4 +357,166 @@ header {
   align-items: center;
   line-height: 1.5;
   color: #686868;
+}
+
+
+.footer-sc{
+
+  .footer-sc-inner{
+     width: 100%;
+     display: flex;
+     position: relative;
+     flex-direction: column;
+     align-items: center;
+     overflow: hidden;
+     /* justify-content: space-between; */
+     padding: 2.125rem 3.75rem 0 3.75rem;
+     /* margin-bottom: 1600px; */
+     /*임시 : gsap 애니 적용하러*/
+     gap:17rem;
+
+     .top-line{
+        top:0;
+        position: absolute;
+        left:50%;
+        transform: translateX(-50%);
+     }
+     .vertical-line-box{
+        gap:0.75rem;
+        .vertical-line{
+           height: 19.56rem;
+        }
+        .diamond-box{
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           gap:0.77rem;
+          .diamond{
+           width: 0.94rem;
+           height:  0.94rem;
+         }
+         > span:nth-child(1){
+           background-color: #e5e5e5;
+         }
+        }
+     
+
+     }
+
+     .top{
+        width: 100%;
+        min-height: 15.44rem;
+        display: flex;
+        justify-content: space-between;
+        color:#484848;
+        .info-box{
+           margin-top: 2.25rem;
+           display: flex;
+           /* justify-content: space-between; */
+           >div{
+              display: flex;
+              flex-direction: column;
+              gap:5.81rem;
+              
+              .sns-box{
+                display: flex;
+                 font-size: 1.13rem;
+                 letter-spacing: -0.04em;
+                 font-weight: 500;
+                 .facebook,.instagram,.pinterest{
+                    margin-right: 0.69rem;
+                 }
+                 .arrow{
+                    margin-left: 1rem;
+                 }
+              
+
+           }
+           .info{
+              display: flex;
+              flex-direction: column;
+              font-size: 1rem;
+              letter-spacing: -0.04em;
+              gap:0.94rem;
+           }
+           }
+           .center-box{
+              margin-left: 4.88rem;
+              margin-right: 7.13rem;
+           }
+        
+       
+        }
+        .arrow-box{
+           display: flex;
+           font-size: 1.25rem;
+           gap:1.5rem;
+           align-items: center;
+           font-weight: 500;
+           >img{
+              transform: rotateX(3.142rad);
+              width: 10.88rem;
+              height: auto;
+           }
+        }
+     }
+
+     .bottom{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:3.25rem;
+        padding-top: 375.79px;
+        .title{
+           display: flex;
+           align-items: center;
+           font-size: 23.31rem;
+           letter-spacing: -0.05em;
+           line-height: 0.7;
+           position: absolute;
+           /* bottom:calc(3.25rem + 6.38rem); */
+           bottom: 155px;
+        }
+        .bottom-words-box{
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           width: 100%;
+
+           .bottom-words{
+              width: 100%;
+              font-size: 0.94rem;
+              letter-spacing: -0.04em;
+              color: #686868;
+              display: flex;
+              justify-content: space-between;
+              padding-top: 2.63rem;
+              /* align-items: center; */
+              height: 6.38rem;
+           
+              .copyright-box{
+                 display: flex;
+                 align-items: flex-end;
+                 height: fit-content;
+                 gap:0.5rem;
+                 .c{
+                    font-size: 1.25rem;
+                 }
+              }
+              .deco-words{
+                 display: flex;
+                 height: fit-content;
+                 /* align-items: center; */
+                 :nth-child(2){
+                    margin-left: 3.69rem;
+                    margin-right: 11.94rem;
+                 }
+              }
+
+           }
+        }
+     }
+
+  }
 }

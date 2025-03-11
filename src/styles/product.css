@@ -1,0 +1,29 @@
+.products-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4열 */
+    grid-template-rows: repeat(7, 30.521vw); /* 7행, 높이 100px씩 */
+    gap: 0.833vw; /* 셀 간격 */
+    width: 100%;
+    /*max-width: 22.813vw; */
+    /* margin: auto; */
+    background: lightgray;
+    /* padding: 0.833vw; */
+  }
+  
+  .product {
+    background: #f6f6f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  
+  }
+
+  .transparent{
+    background: transparent;
+  }
+  
+  /* 특정 셀 병합 */
+  .big-chairs { grid-column: span 2; grid-row: span 2; } /* 가로로 2칸 합침 */
+  .big-table { grid-row: span 2; }    /* 세로로 2칸 합침 */
+  .big-flowers { grid-column: span 2;} /* 가로, 세로 둘 다 합침 */
