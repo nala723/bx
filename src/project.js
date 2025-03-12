@@ -39,6 +39,29 @@ hamburger.addEventListener('click',()=>{
   
 })
 
+
+const video = gsap.timeline();
+
+// video.to('.main-sc .video-box',{clipPath: "inset(0%)"});
+video.to('.main-sc .video-box',{left:0,top:0,width:"100vw",height:"100vh"});
+video.to('.main-sc .first-box,.second-box,.third-box,.forth-box',{
+  opacity:0
+},0)
+
+
+
+
+ScrollTrigger.create({
+  trigger: '.main-innner',
+  start: 'top top',
+  end: '+=5000',
+  animation: video,
+  scrub: 1,
+  pin:true,
+  // markers: true
+});
+
+
 const circleMoving = gsap.timeline();
 
 gsap.to('.circle-sc .circle-box',{rotation: 360,  // 360도 회전

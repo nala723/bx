@@ -266,8 +266,8 @@ header {
 .vertical-line {
   width: 0.05vw;
   background-color: #484848;
-  /* transform: scaleY(0);
-  transform-origin: top; */
+  transform: scaleY(0);
+  transform-origin: top;
 }
 
 /* 다이아몬드 */

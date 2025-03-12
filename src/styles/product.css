@@ -1,29 +1,262 @@
-.products-box {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4열 */
-    grid-template-rows: repeat(7, 30.521vw); /* 7행, 높이 100px씩 */
-    gap: 0.833vw; /* 셀 간격 */
-    width: 100%;
-    /*max-width: 22.813vw; */
-    /* margin: auto; */
-    background: lightgray;
-    /* padding: 0.833vw; */
-  }
-  
-  .product {
-    background: #f6f6f6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-  
-  }
+body{
+  overflow: hidden;
+}
 
-  .transparent{
-    background: transparent;
+.main-sc{
+  .main-inner{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 8.125vw;
+    .main-title-box{
+      display: flex;
+      flex-direction: column;
+      /* align-items: flex-end; */
+      padding-left: 3.125vw;
+      .main-title{
+        display: flex;
+        /* align-items: flex-end; */
+        .text-left{
+          display: flex;
+          flex-direction: column;
+          font-size: 4.375vw;
+          letter-spacing: -0.1em;
+          font-weight: 500;
+          line-height: 0.8;
+          /* gap:0.677vw; */
+          height: 11.146vw;
+          justify-content: space-between;
+          .row{
+            display: flex;
+            /* .diamond-box{
+              display: grid;
+              grid-template-columns: repeat(2, 1fr); 
+              grid-template-rows: repeat(2, 15px);
+              gap: 10.208vw; 
+       
+            } */
+          }
+        }
+      }
+      .title{
+        width: 73.906vw;
+      }
+      .text-bottom{
+        text-align: end;
+        padding-right: 3.125vw;
+      }
+    }
+    .main-photos-box{
+      display: flex;
+      overflow: hidden;
+    }
   }
-  
-  /* 특정 셀 병합 */
-  .big-chairs { grid-column: span 2; grid-row: span 2; } /* 가로로 2칸 합침 */
-  .big-table { grid-row: span 2; }    /* 세로로 2칸 합침 */
-  .big-flowers { grid-column: span 2;} /* 가로, 세로 둘 다 합침 */
+}
+
+.products-sc{
+  overflow: hidden;
+  width: 100vw;
+  .products-sc-inner{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 13.333vw 3.125vw 0 3.125vw;
+   top:0;
+   left:0;
+     .diamond-box{
+        display: flex;
+        justify-content: center;
+        gap:0.416vw;
+        .diamond{
+          width: 0.781vw;
+          height: 0.781vw;
+        }
+      }
+
+    .title-box{
+         margin-top:4.531vw;
+         margin-bottom: 4.271vw;
+
+      }
+
+      .section-title-sub{
+        width: 68.02vw;
+        align-items: flex-end;
+        div{
+          width: 50%;
+          font-size: 1.354vw;
+        
+        
+        }
+        
+      }
+    
+    .products-box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4열 */
+        grid-template-rows: repeat(7, 30.521vw); /* 7행, 높이 */
+        gap: 0.833vw; /* 셀 간격 */
+        width: 100%;
+        z-index: 10;
+        /* overflow: hidden; */
+      }
+      
+      .product {
+        background: #f6f6f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      
+      }
+      .big-chairs,.big-flowers{
+      img{
+        width: 46.458vw;
+
+      }
+      }
+
+      .transparent{
+        background: transparent;
+      }
+      .text{
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        /* padding: 1.823vw 1.042vw 1.198vw 0.677vw; */
+        padding: 1.979vw 0.99vw 1.615vw 0.729vw;
+        color:#686868;
+        letter-spacing: 0;
+        .top-text{
+          width: 100%;
+          font-size: 0.729vw;
+          letter-spacing: -0.035em;
+          text-align: end;
+       
+        }
+        .bottom-text{
+          /* width: 100%; */
+          display: flex;
+          flex-direction: column;
+          gap:1.484vw;
+          /*갭이 29px,28px..*/
+          .horizontal-line{
+            width: 2.135vw;
+            background-color:#969696;
+          }
+          .detail{
+            font-size: 0.885vw;
+            p:first-child{
+              margin-bottom: 0.417vw;
+            }
+          }
+        }
+
+      }
+      .rightSide{
+        align-items: flex-end;
+        padding: 1.979vw 0.729vw 1.615vw 0.99vw;
+        .top-text{
+          text-align: start;
+        }
+        .bottom-text{
+          align-items: flex-end;
+          text-align: end;
+        }
+
+      }
+      .centerSmall{
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+
+
+       .text-inner{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: start;
+        height: 7.127vw;
+        font-size: 0.729vw;
+        color:#969696;
+      }
+
+    }
+
+    .last-text{
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding: 0 0.677vw 2.396vw 0;
+      gap:2.188vw;
+      .viewMore{
+        display: flex;
+        gap:0.625vw;
+        font-size: 0.942vw;
+        padding-left: 7.967vw;
+        color: #484848;
+        >div >img{
+            width: 1.146vw;
+        }
+        .text-box{
+            display: flex;
+            flex-direction: column;
+            gap:0.158vw;
+}
+    }
+    .detail{
+      font-size: 0.885vw;
+      color:#969696;
+      text-align: end;
+      p{
+        margin-bottom: 0.417vw;
+        
+        }
+        :last-child{
+          margin:0;
+      }
+      
+    }
+
+    }
+      
+      /* 특정 셀 병합 */
+      .big-chairs { grid-column: span 2; grid-row: span 2; } /* 가로로 2칸 합침 */
+      .big-table { 
+        grid-row: span 2;
+        overflow: hidden;
+      }    /* 세로로 2칸 합침 */
+      .big-flowers,.last-text{ grid-column: span 2;} /* 가로, 세로 둘 다 합침 */
+
+
+      .bottom-line{
+        margin-top:1.094vw;
+        height: 7.656vw;
+      }
+
+      .circles-box{
+         .circle{
+          position: absolute;
+          overflow: initial;
+    
+      }
+          .top{
+            top:45.833vw;
+            right:-1.198vw;
+          }
+         .mid{
+          top:115.313vw;
+          left:-16.51vw;
+         } 
+         .big{
+          top:142.5vw;
+          left:-26.302vw;
+         }
+    
+     
+  }
+}
+}
