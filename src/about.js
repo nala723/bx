@@ -353,8 +353,7 @@ ScrollTrigger.create({
   one:true,
   scrub: 1,
   onEnter: () => {
-    createMarquee(document.querySelector(".toleft"), "left");
-    createMarquee(document.querySelector(".toright"), "right");
+
   }
 })
 
@@ -407,7 +406,7 @@ ScrollTrigger.create({
   animation:  footer,
   //  pin: true,
   // markers: true,
-  scrub: 1,
+  scrub: 10,
 })
 
                                 

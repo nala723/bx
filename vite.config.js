@@ -18,6 +18,9 @@ import { resolve } from "node:path";
         project: resolve(__dirname,'project.html'),
       }
     }
+  },
+  css: {
+    devSourcemap: true,
   }
 })
 

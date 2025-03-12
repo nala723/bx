@@ -1,10 +1,36 @@
 import './styles/project.css';
+import 'swiper/css/bundle';
 import { markers } from "../lib/smooth";
 
 import { gsap } from "gsap";
 // import { Draggable } from "gsap/Draggable";
 // import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import Swiper from 'swiper/bundle';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  // direction: 'vertical',
+  // loop: true,
+
+  // // If we need pagination
+  // pagination: {
+  //   el: '.swiper-pagination',
+  // },
+
+  // // Navigation arrows
+  // navigation: {
+  //   nextEl: '.swiper-button-next',
+  //   prevEl: '.swiper-button-prev',
+  // },
+
+  // // And if we need scrollbar
+  // scrollbar: {
+  //   el: '.swiper-scrollbar',
+  // },
+});
+
 
 gsap.registerPlugin(ScrollTrigger);
 

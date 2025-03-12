@@ -300,10 +300,13 @@ header {
   align-items: flex-start;
   .semiCircle-wrapper{
     width: 100%;
-    img{
-      width: 100%;
-    }
+
   }
+   .semiCircle-left{
+    background: red;
+    /* width: 0; */
+    overflow: hidden;
+   }
    .semiCircle-right{
     width: 0;
     overflow: hidden;

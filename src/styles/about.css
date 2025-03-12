@@ -644,6 +644,10 @@ top:0;
 
 .designer-sc{
 
+   img{
+      width: initial;
+   }
+   
    .designer-sc-inner{
       width: 100%;
       display: flex;
