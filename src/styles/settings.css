@@ -1,9 +1,4 @@
-@font-face {
-  font-family: 'suit';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
+@import url("https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css");
 
 @font-face {
   font-family: 'alta';
@@ -25,7 +20,7 @@
 
 
 :root {
-  font-family: 'suit', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "SUIT", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 

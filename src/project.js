@@ -9,27 +9,27 @@ import Swiper from 'swiper/bundle';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
-const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  // direction: 'vertical',
-  // loop: true,
+// const swiper = new Swiper('.swiper', {
+//   Optional: 'parameters',
+//   direction: 'vertical',
+//   loop: true,
 
-  // // If we need pagination
-  // pagination: {
-  //   el: '.swiper-pagination',
-  // },
+//   // If we need pagination
+//   pagination: {
+//     el: '.swiper-pagination',
+//   },
 
-  // // Navigation arrows
-  // navigation: {
-  //   nextEl: '.swiper-button-next',
-  //   prevEl: '.swiper-button-prev',
-  // },
+//   // Navigation arrows
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev',
+//   },
 
-  // // And if we need scrollbar
-  // scrollbar: {
-  //   el: '.swiper-scrollbar',
-  // },
-});
+//   // And if we need scrollbar
+//   scrollbar: {
+//     el: '.swiper-scrollbar',
+//   },
+// });
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -65,14 +65,21 @@ hamburger.addEventListener('click',()=>{
   
 })
 
-
+const start = gsap.timeline();
 const video = gsap.timeline();
 
-// video.to('.main-sc .video-box',{clipPath: "inset(0%)"});
-video.to('.main-sc .video-box',{left:0,top:0,width:"100vw",height:"100vh"});
-video.to('.main-sc .first-box,.second-box,.third-box,.forth-box',{
-  opacity:0
-},0)
+gsap.set(".video-box-wrapper", {
+  clipPath: "inset(20.42vw calc(100vw - 25.16vw - 16.77vw) calc(100vh - 20.42vw - 6.93vw) 25.16vw)"
+});
+start.from('.main-sc img,.main-sc video',{
+  stagger:0.2,y:200,ease: "power2.out"
+})
+start.from('.main-sc .text',{opacity:0})
+
+
+video.to('.main-sc .word-box',{duration:0.1,opacity:0,ease: "power2.out"})
+video.to('.main-sc .video-box-wrapper',{  clipPath: "inset(0% 0% 0% 0%)",ease: "power2.out"},0)
+// video.to('.main-sc .video-box-wrapper',{left:0,top:0,width:"100vw",height:"100vh",ease: "power2.out"},0);
 
 
 
@@ -96,12 +103,12 @@ gsap.to('.circle-sc .circle-box',{rotation: 360,  // 360도 회전
   repeat: -1})
 circleMoving.from(".circle-sc .photo img", { duration:1,
     y:500,stagger:0.2,ease: "power2.out"
-   });  
+   }); 
 circleMoving.to(".circle-sc .photo", { 
     left: "50%",x:"-50%",ease: "power2.out"
    });
-circleMoving.to(".circle-sc .photo01", { 
-  scale:5.2,ease: "power2.out"
+circleMoving.to(".circle-sc .photo01 img", { 
+  scale:1,ease: "power2.out"
    });
 circleMoving.to(".circle-sc .dark", { 
    duration:1,
@@ -114,7 +121,7 @@ circleMoving.to(".circle-sc .dark", {
      ease: "power2.out",
     });
 
-    /*잘 안됨..scale 때문? 아니면 위치설정 및 기타..? */
+  
  
 
 

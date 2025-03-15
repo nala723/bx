@@ -76,6 +76,12 @@ header {
   }
 }
 
+header.hidden {
+  transform: translateY(-100%);
+  /* opacity: 0; */
+}
+
+
 .menu {
   width: 100vw;
   /* height: 100vh; */
@@ -295,22 +301,29 @@ header {
 
 .semiCircle-box{
   top: 5.21vw;
-  width: 116.62vw;
+  width: auto;
   display: flex;
-  align-items: flex-start;
   .semiCircle-wrapper{
     width: 100%;
 
   }
+  .left,.semiCircle-left{
+    display: flex;
+    justify-content: flex-end;
+  }
    .semiCircle-left{
-    background: red;
-    /* width: 0; */
+    width: 0;
     overflow: hidden;
    }
    .semiCircle-right{
     width: 0;
     overflow: hidden;
    }
+   
+    img{
+   width: 58.281vw;
+   
+}
 
 }
 
@@ -456,6 +469,7 @@ header {
            gap:1.5rem;
            align-items: center;
            font-weight: 500;
+           cursor: pointer;
            >img{
               transform: rotateX(3.142rad);
               width: 10.88rem;

@@ -1,17 +1,49 @@
-import './styles/about.css';
+// import './styles/about.css';
 import { markers } from "../lib/smooth";
 import './header'
 import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
 // import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger,Draggable);
+gsap.registerPlugin(ScrollToPlugin);
 
 // 1. git pull
 // 2. 터미널 창에서 npm i 실행한다.
 // 3. npm run dev로 사이트를 연다.
 // 5. 코딩 시작.
+
+
+let lastScrollY = window.scrollY;
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+  let currentScrollY = window.scrollY;
+
+  if (currentScrollY > window.innerHeight) { // 100vh 아래로 내려갔을 때만 실행
+    if (currentScrollY > lastScrollY) {
+      // 아래로 스크롤하면 헤더 숨김
+      gsap.to(header, {
+        y: "-100%",
+        duration: 0.5,
+        ease: "power2.out"
+      });
+    } else {
+      // 위로 스크롤하면 헤더 보이게
+      gsap.to(header, {
+        y: "0%",
+        duration: 0.5,
+        ease: "power2.out"
+      });
+    }
+  }
+
+  lastScrollY = currentScrollY;
+});
+
+
 
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
@@ -78,9 +110,7 @@ tl.from('.mid-words-box,.bottom-words-box,.circle-arrow',{
   opacity:0,
   
 })
-tl.from('.shop,.logo,.hamburger',{
-  opacity:0
-})
+
 
 
 const card = gsap.timeline();
@@ -181,18 +211,50 @@ ScrollTrigger.create({
 })
 
 
+// const titlesItem = document.querySelectorAll('.product-title > div');
+const historyPhoto = document.querySelectorAll('.history-sc .img-box > div');
+
+
+// const start = gsap.timeline();
+// let hoverEnabled = false;
+// start.from('.main-sc .main-photos-box',{duration: 10,left:"50%",repeat: -1,ease: "linear",onComplete: () => {
+//     hoverEnabled = true; // 애니메이션이 끝난 후에 호버 가능하도록 변경
+//   }})
+
+
+historyPhoto.forEach((item,i)=>{
+
+ 
+
+  item.addEventListener('mouseenter',()=>{
+    // if (!hoverEnabled) return; 
+ 
+    gsap.to(historyPhoto[i].children[0],{scale:1.2, clipPath:"inset(8%)"})
+    gsap.to(historyPhoto[i].children[0].children[2],{opacity:1})
+    gsap.to(historyPhoto[i].children[0].children[0],{opacity:1,stagger:0.2})
+  })
+  item.addEventListener('mouseleave',()=>{
+    // if (!hoverEnabled) return; 
+    gsap.to(historyPhoto[i].children[0],{scale:1, clipPath:"inset(0%)"})
+    gsap.to(historyPhoto[i].children[0].children[2],{opacity:0})
+    gsap.to(historyPhoto[i].children[0].children[0],{opacity:0})
+  })
+})
 
 const history = gsap.timeline();
 
 history.from('.top-content span',{stagger:0.1,opacity:0.2})
 history.from('.history-box .diamond',{stagger:0.1,opacity:0})
+
 history.to('.history-box .first',{duration:1, scaleY: 1})
-history.from('.img1876',{duration:5, scale:0})
+// history.to('.img1876 img',{scale:1})
+history.to('.img1876',{duration:5, clipPath:'inset(0%)'})
 history.from('.year1878',{duration:6, y:100})
 history.from('.first .horizontal-line',{duration:1,scale:0})
 history.to('.first .vertical-line',{duration:1,scaleY: 1})
 history.from('.img1918,.img1921',{duration:5, scale:0})
 history.from('.year1918,.year1921',{duration:6, y:100})
+
 history.to('.second.vertical-line',{duration:1,scaleY: 1})
 history.from('.img1931',{duration:5, scale:0})
 history.from('.year1931',{duration:6, y:100})
@@ -200,6 +262,7 @@ history.from('.second .horizontal-line',{duration:1,scale:0})
 history.to('.second .vertical-line',{duration:1,scaleY: 1})
 history.from('.img1933,.img1943',{duration:5, scale:0})
 history.from('.year1933,.year1943',{duration:6, y:100})
+
 history.to('.third.vertical-line',{duration:1,scaleY: 1})
 history.from('.img1954',{duration:5, scale:0})
 history.from('.year1954',{duration:6, y:100})
@@ -207,6 +270,7 @@ history.from('.third .horizontal-line',{duration:1,scale:0})
 history.to('.third .vertical-line',{duration:1,scaleY: 1})
 history.from('.img1955,.img1974',{duration:5, scale:0})
 history.from('.year1955,.year1974',{duration:6, y:100})
+
 history.to('.firth.vertical-line',{duration:1,scaleY: 1})
 history.from('.img1988',{duration:5, scale:0})
 history.from('.year1988',{duration:6, y:100})
@@ -215,10 +279,12 @@ history.to('.firth .vertical-line',{duration:1,scaleY: 1})
 history.from('.img2011,.img2016',{duration:5, scale:0})
 history.from('.year2011,.year2016',{duration:6, y:100})
 
+
+
 ScrollTrigger.create({
   trigger: '.history-inner',
   start: 'top center',
-  end: '+=4500',
+  end: '+=4000',
   animation: history,
   // pin: true,
   // pinSpacing: false,
@@ -234,28 +300,59 @@ ScrollTrigger.create({
 
 const video = document.getElementById('video');
 const playButton = document.getElementById('playButton');
+const pauseButton = document.getElementById('pauseButton');
+const videoBox = document.querySelector('.video-box');
 
+let hideControlsTimeout; // 버튼 자동 숨김 타이머
+
+// 재생 버튼 클릭 이벤트
 playButton.addEventListener('click', () => {
-  if (video.paused) {
-    video.play(); // 동영상 재생
-    playButton.classList.add('hidden'); // 버튼 숨김
-  }
-  else if (video.paly){
-    video.paused();
-    playButton.classList.remove('hidden');
-}
-  } );
-
-// 동영상이 끝나면 버튼 다시 보이게
-video.addEventListener('ended', () => {
-  playButton.classList.remove('hidden');
+  video.play();
+  playButton.classList.add('hidden'); // 재생 버튼 숨김
+  hidePauseButton(); // 일시정지 버튼도 숨김
 });
 
+// 일시정지 버튼 클릭 이벤트
+pauseButton.addEventListener('click', () => {
+  video.pause();
+  playButton.classList.remove('hidden'); // 재생 버튼 다시 보이기
+  pauseButton.classList.add('hidden'); // 일시정지 버튼 숨기기
+});
+
+// 영상이 끝나면 재생 버튼 다시 표시
+video.addEventListener('ended', () => {
+  playButton.classList.remove('hidden');
+  pauseButton.classList.add('hidden');
+});
+
+// 마우스가 움직이면 일시정지 버튼 표시
+videoBox.addEventListener('mousemove', () => {
+  if (!video.paused) { // 영상이 재생 중일 때만 일시정지 버튼 표시
+    showPauseButton();
+    resetHideControlsTimer();
+  }
+});
+
+// 일시정지 버튼 표시 함수
+function showPauseButton() {
+  pauseButton.classList.remove('hidden');
+}
+
+// 일시정지 버튼 숨김 함수
+function hidePauseButton() {
+  pauseButton.classList.add('hidden');
+}
+
+// 마우스 움직임이 멈춘 후 2초 뒤 버튼 숨김
+function resetHideControlsTimer() {
+  clearTimeout(hideControlsTimeout);
+  hideControlsTimeout = setTimeout(hidePauseButton, 2000);
+}
 
 const videoMoving = gsap.timeline();
 
 videoMoving.to('video',{scaleY:1})
-videoMoving.from('.button-container *',{opacity:0})
+videoMoving.from('.button-container *',{opacity:0},0.1)
 videoMoving.to('.video-sc .vertical-line',{scaleY:1})
 
 ScrollTrigger.create({
@@ -294,7 +391,7 @@ const designer = gsap.timeline();
 
 designer.to('.designer-sc .top-line',{scaleY:1})
 designer.from('.designer-sc .diamond',{duration:1,opacity:0},0.4)
-designer.to('.designer-sc .semiCircle-right',{duration:1,width:"100%"},0.2)
+designer.to('.designer-sc .semiCircle-right,.designer-sc .semiCircle-left',{duration:1,width:"100%"},0.2)
 designer.from('.designer-sc .section-title-main *',{duration:2,y:200},1)
 designer.from('.designer-sc .section-title-box .horizontal-line ',{duration:2, scale:0},2.5)
 designer.from('.designer-sc .section-title-sub',{duration:2, y:200},2.7)
@@ -324,23 +421,23 @@ wordsMoving.to('.moving-words-sc .top-vertical',{duration:1.5,scaleY:1})
 wordsMoving.from('.moving-words-sc .top-line,.bottom-line',{stagger:0.2 ,scaleX:0},0.3)
 wordsMoving.from('.moving-words-sc .top-words p',{y:100},0.5)
 wordsMoving.from('.moving-words-sc .small-words',{y:200},0.6)
-wordsMoving.from('.moving-words-sc .moving-words-box',{duration:1,y:400},0.7)
+wordsMoving.from('.moving-words-sc .toleft,.toright',{stagger:0.2,y:400},0.7)
 wordsMoving.to('.moving-words-sc .bottom-vertical',{duration:1.5,scaleY:1},0.9)
 
 
-function createMarquee(target, direction) {
-  const distance = target.offsetWidth / 2;
+// function createMarquee(target, direction) {
+//   const distance = target.offsetWidth / 2;
 
-  gsap.to(target, {
-    x: direction === "left" ? `-${distance}px` : `${distance}px`,
-    duration: 5, 
-    repeat: -1,
-    ease: "linear",
-    modifiers: {
-      x: gsap.utils.unitize((x) => parseFloat(x) % distance)
-    }
-  });
-}
+//   gsap.to(target, {
+//     x: direction === "left" ? `-${distance}px` : `${distance}px`,
+//     duration: 5, 
+//     repeat: -1,
+//     ease: "linear",
+//     modifiers: {
+//       x: gsap.utils.unitize((x) => parseFloat(x) % distance)
+//     }
+//   });
+// }
 
 
 
@@ -362,12 +459,12 @@ const environment = gsap.timeline();
 
 environment.to('.environment-sc .top-line',{scaleY:1})
 environment.from('.environment-sc .diamond',{duration:1,opacity:0})
-environment.to('.environment-sc .semiCircle-right',{duration:1,width:"100%"},0.2)
+environment.to('.environment-sc .semiCircle-right,.environment-sc .semiCircle-left',{duration:1,width:"100%"},0.2)
 environment.from('.environment-sc .section-title-main *',{duration:2,y:200},1)
 environment.from('.environment-sc .section-title-box .horizontal-line ',{duration:2, scale:0},2)
 environment.from('.environment-sc .section-title-sub',{duration:1, y:200},2.3)
 environment.from('.environment-sc .detail >div',{duration:2, stagger:0.2, y:300},2.9)
-environment.from('.environment-sc img',{duration:2, stagger: {
+environment.from('.environment-sc .image-contents img',{duration:2, stagger: {
   each: 0.1,   
   from: "center"  
 },y:600},3.2)
@@ -406,8 +503,18 @@ ScrollTrigger.create({
   animation:  footer,
   //  pin: true,
   // markers: true,
-  scrub: 10,
+  scrub: 4,
 })
 
-                                
+       
+const scrollToTopButton = document.querySelector('.arrow-box'); // 이미지 선택
+
+scrollToTopButton.addEventListener('click', () => {
+  gsap.to(window, {
+    duration: 1.5,  // 애니메이션 지속 시간 (초)
+    scrollTo: { y: 0, autoKill: true }, // 맨 위로 스크롤
+    ease: "power2.out" // 부드러운 감속 효과
+  });
+});
+
 markers();
