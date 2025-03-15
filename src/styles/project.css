@@ -1,14 +1,13 @@
-
-.float{
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 60;
-    display: none;
-
-    /* .page01{
+.float {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  scale: 0.3;
+  /* display: none; */
+  /* .page01{
         display: none;
     }
     .page02{
@@ -17,94 +16,95 @@
     .page03{
       display: none;
     } */
+  .swiper {
+    width: 100vw;
+    height: 100vh;
+  }
+  .background {
+    img {
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+  .contents {
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+    /* bottom:0; */
+    left: 0;
+    top: 27.344vw;
+    padding: 0 3.021vw 2.917vw 3.75vw;
+    display: flex;
+    flex-direction: column;
+    color: white;
 
-     .background{
-      img{
-        width: 100vw;
-        height: 100vh;
-      }
-     }
-    .contents{
-      width: 100%;
-      position: absolute;
-      z-index: 100;
-      /* bottom:0; */
-      left:0;
-      top: 27.344vw;
-      padding: 0  3.021vw 2.917vw 3.75vw ;
+    .fritzHansen {
       display: flex;
-      flex-direction: column;
-      color:white;
-
-     .fritzHansen{
-      display: flex;
-      gap:1.563vw;
+      gap: 1.563vw;
       font-size: 3.646vw;
       letter-spacing: -0.05em;
       line-height: 0.8;
 
-      p:nth-child(2){
+      p:nth-child(2) {
         font-weight: 100;
       }
-     }
-     .title{
+    }
+    .title {
       position: absolute;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       height: 12.76vw;
-      left:2.813vw;
-      top:4.115vw;
+      left: 2.813vw;
+      top: 4.115vw;
       font-size: 8.646vw;
       letter-spacing: -0.05em;
       line-height: 0.7;
-     }
-     .bottom-box{
+    }
+    .bottom-box {
       display: flex;
       padding-top: 8.2vw;
       /* padding-top: 5.521vw; */
       /* padding-bottom: 2.917vw; */
-      
 
-      .detail-box,.date-box{
+      .detail-box,
+      .date-box {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         font-size: 0.938vw;
         margin-top: 8.698vw;
       }
-      .detail-box{
+      .detail-box {
         height: 5.99vw;
         min-width: 20.208vw;
       }
-      .date-box{
+      .date-box {
         margin-left: 5vw;
         height: 2.031vw;
         width: 4.896vw;
       }
-      .center-box{
+      .center-box {
         display: flex;
         flex-direction: column;
-        align-items: center;    
+        align-items: center;
         font-size: 0.729vw;
         letter-spacing: -0.05em;
         width: 5.417vw;
         min-height: 2.708vw;
-        gap:0.417vw;
+        gap: 0.417vw;
         margin: 12.969vw 16.458vw 0 13.229vw;
       }
 
-   
-             .arrow-box {
+      .arrow-box {
         position: relative;
         top: 0;
         left: 0;
         display: flex;
         flex-direction: column;
-        svg{
+        svg {
           overflow: visible;
         }
-       
 
         .arrow,
         p {
@@ -127,139 +127,135 @@
           font-weight: 300;
         }
       }
-    .page-box{
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      letter-spacing: 0;
-      margin-left: 8.646vw;
-      margin-bottom: 1.094vw;
-      width: 6.563vw;
-      line-height: 0.7;
-      .now{
-        font-size:2.917vw;
-        font-weight: 600;
-      }
-      .all{
-        font-size: 1.539vw;
-        color: rgba(255, 255, 255, 0.6);
-      }
-    }
- 
-     }
-    }
-
-
-    .page02{
-      .now{
-        color:#686868;
-      }
-    }
-    .page03{
-      .title{
-        gap:0.833vw;
-       > p:nth-child(2){
-          padding-left:1.85vw;
-        }
-      }
-    }
-
-    /* 인트로 페이지 */
-    
-    .photo-inner {
-      display: flex;
-      position: relative;
-
-      .dark {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        /* opacity: 0; */
-        z-index: 25;
-      }
-
-      .content {
-        z-index: 50;
-        /* opacity: 0; */
-        /* display: none;  */
+      .page-box {
         display: flex;
-
-        flex-direction: column;
-        align-items: center;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        color: #ffffff;
-        padding-top: 20.208vw;
-        gap: 5.625vw;
-        .section-title02 {
-          display: flex;
-          align-items: center;
+        align-items: flex-end;
+        justify-content: space-between;
+        letter-spacing: 0;
+        margin-left: 8.646vw;
+        margin-bottom: 1.094vw;
+        width: 6.563vw;
+        line-height: 0.7;
+        .now {
+          font-size: 2.917vw;
+          font-weight: 600;
         }
-        .horizontal-line {
-          background-color: #ffffff;
-        }
-        .section-title-box {
-          height: 5.833vw;
-          width: 52.45vw;
-          justify-content: space-between;
-          gap: initial;
-          .section-title-main {
-            width: 100%;
-            align-items: flex-start;
-            justify-content: space-between;
-            p {
-              line-height: 0.7;
-            }
-          }
-        }
-        .section-title-sub {
-          height: 5.717vw;
-          font-size: 1.458vw;
-          justify-content: space-between;
-          font-weight: 300;
-          line-height: 1;
-          color: #ffffff;
-        }
-
-        .arrow-box {
-          position: relative;
-          top: 0;
-          left: 0;
-          display: flex;
-          flex-direction: column;
-
-          .arrow,
-          p {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-          }
-
-          .arrow {
-            bottom: 7.133vw;
-            width: auto;
-            img {
-              width: 2.192vw;
-              height: auto;
-            }
-          }
-          p {
-            bottom: 5.05vw;
-            font-size: 1.042vw;
-            font-weight: 300;
-          }
+        .all {
+          font-size: 1.539vw;
+          color: rgba(255, 255, 255, 0.6);
         }
       }
     }
+  }
 
-} 
+  .page02 {
+    .now {
+      color: #686868;
+    }
+  }
+  .page03 {
+    .title {
+      gap: 0.833vw;
+      > p:nth-child(2) {
+        padding-left: 1.85vw;
+      }
+    }
+  }
 
+  /* 인트로 페이지 */
+
+  .photo-inner {
+    display: flex;
+    position: relative;
+
+    .dark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      /* opacity: 0; */
+      z-index: 25;
+    }
+
+    .content {
+      z-index: 50;
+      /* opacity: 0; */
+      /* display: none;  */
+      display: flex;
+
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: #ffffff;
+      padding-top: 20.208vw;
+      gap: 5.625vw;
+      .section-title02 {
+        display: flex;
+        align-items: center;
+      }
+      .horizontal-line {
+        background-color: #ffffff;
+      }
+      .section-title-box {
+        height: 5.833vw;
+        width: 52.45vw;
+        justify-content: space-between;
+        gap: initial;
+        .section-title-main {
+          width: 100%;
+          align-items: flex-start;
+          justify-content: space-between;
+          p {
+            line-height: 0.7;
+          }
+        }
+      }
+      .section-title-sub {
+        height: 5.717vw;
+        font-size: 1.458vw;
+        justify-content: space-between;
+        font-weight: 300;
+        line-height: 1;
+        color: #ffffff;
+      }
+
+      .arrow-box {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+
+        .arrow,
+        p {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        .arrow {
+          bottom: 7.133vw;
+          width: auto;
+          img {
+            width: 2.192vw;
+            height: auto;
+          }
+        }
+        p {
+          bottom: 5.05vw;
+          font-size: 1.042vw;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}
 
 .main-sc {
   /* height: 100vh; */
@@ -284,17 +280,15 @@
       font-size: 0.78vw;
       color: #686868;
       letter-spacing: 0;
-      .img-wrapper{
+      .img-wrapper {
         overflow: hidden;
       }
     }
 
     .first-box {
-   
       img {
         width: 44.95vw;
         height: auto;
-       
       }
       padding-right: 7.82vw;
       gap: 0.78vw;
@@ -362,27 +356,26 @@
     .video-box-wrapper {
       z-index: 10;
       position: absolute;
-      top:0;
-      left:0;
-      clip-path: inset(20.42vw calc(100vw - 25.16vw - 16.77vw) calc(100vh - 20.42vw - 6.93vw) 25.16vw);
+      top: 0;
+      left: -10vw;
+      clip-path: inset(40%);
       overflow: hidden;
-      
+
       /* top: 25.156vw;
       left: 20.417vw;
       width: 16.771vw;
       height: 6.927vw; */
-      .video-box{
-
+      .video-box {
         position: relative;
-        top:0;
-        left:0;
-           video {
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            transform: scale(1.001); 
-         }
-         .text-box{
+        top: 0;
+        left: 0;
+        video {
+          width: 100vw;
+          height: 100vh;
+          object-fit: cover;
+          transform: scale(1.001);
+        }
+        .text-box {
           z-index: 30;
           width: 100%;
           display: flex;
@@ -390,51 +383,48 @@
           justify-content: space-between;
           position: absolute;
           height: 5.365vw;
-          left:0;
+          left: 0;
           bottom: 2.5vw;
           /* top: 50%;
           left: 50%;
           transform: translate(-50%, -50%) */
-          .toleft,.toright{
+          .toleft,
+          .toright {
             width: 100%;
-            gap:2.917vw;
-      
-            .one-sentence{   
+            gap: 2.917vw;
+
+            .one-sentence {
               display: flex;
               align-items: flex-end;
-              gap:0.729vw;
+              gap: 0.729vw;
               font-size: 2.917vw;
               letter-spacing: -0.1em;
               color: rgba(255, 255, 255, 0.5);
               line-height: 0.8;
               white-space: nowrap;
-                .alta{
+              .alta {
                 font-size: 3.229vw;
                 letter-spacing: -0.05em;
                 line-height: 0.7;
-                
-               }
-               .x{
+              }
+              .x {
                 font-size: 2.083vw;
                 letter-spacing: -0.075em;
                 font-weight: 300;
                 line-height: 1;
-               }
-            
+              }
             }
-          
           }
-          .toleft{
+          .toleft {
             display: flex;
             justify-content: flex-start;
           }
-          .toright{
+          .toright {
             display: flex;
             justify-content: flex-end;
           }
-          
-         }
-       /* .overlay{
+        }
+        /* .overlay{
         position: absolute;
        bottom:0;
         left:0;
@@ -443,23 +433,22 @@
         width: 100%;
         height: 40%;
        } */
-
+      }
+      .video-box::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.9) 100%
+        );
+        pointer-events: none; /* 클릭 방해 방지 */
+      }
     }
-    .video-box::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 50%; 
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
-      pointer-events: none; /* 클릭 방해 방지 */
-
-    }
-   
-    }
-
-    
   }
 }
 
@@ -818,16 +807,15 @@
         transform: translateY(-50%);
         z-index: 10;
         /* display: none;  */
-      
+
         img {
           /* transform: scale(0.1922); 
          transform-origin: center center; */
-          scale:0.1922;
+          scale: 0.1922;
         }
       }
 
       .photo01 {
-      
         z-index: 20;
         left: 0;
 
