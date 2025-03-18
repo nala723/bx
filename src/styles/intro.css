@@ -33,28 +33,28 @@
     }
   
     .logo {
-      width: 10.6rem;
+      width: 8.854vw;
       height: auto;
     }
   
     .title {
-      margin: 2.68rem 0 5.63rem 0;
-      width: 37.3rem;
+      margin: 2.188vw 0 4.66vw 0; 
+      width: 31.094vw;
       height: auto;
     }
   
     .enter {
       display: flex;
       flex-direction: column;
-      gap:0.88rem;
-      font-size: 1.25rem;
+      gap:0.729vw;
+      font-size:1.042vw;
       color: #484848;
       cursor: pointer;
 
       .line{
 
         width: 100%;
-        height: 1px;
+        height: 0.05vw;
         background-color: #484848;
 
       }
@@ -71,9 +71,17 @@
   
     .small-circle{
       animation: circle 120s infinite linear;
+  
+        width: 81.979vw;
+        height: auto;
+   
     }
     .big-circle{
       animation: circle 90s infinite linear;
+   
+        width: 112.865vw;
+        height: auto;
+  
     }
   
   }
@@ -83,20 +91,33 @@
   .section01 {
     height: 100vh;
     .background {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        opacity: 0;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      .background-inner{
+          position: relative;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          div{
+             position: absolute;
+            top: 48.5%;
+            left: 49.5%;
+            transform: translate(-49.5%, -48.5%);
+              img {
+                    
+                      width: 291.458vw;
+                    }
+
+          }
       
-        img {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
         }
+      
       }
 
   }

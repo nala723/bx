@@ -83,7 +83,7 @@ enter.addEventListener('click',()=>{
       intro.remove();
 
       gsap.to('.background',{opacity:1})
-      gsap.from('.background img',{
+      gsap.from('.background-inner div',{
         duration:2,
         opacity: 0,
         stagger: 0.3  

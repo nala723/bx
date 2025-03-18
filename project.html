@@ -91,18 +91,17 @@
         </header>
 
         <section class="main-sc">
-          <div class="main-innner">
-            <div class="video-box-wrapper">
+          <div class="main-inner">
+              <div class="video-box-inner">
               <div class="video-box">
                 <video id="video" autoplay muted loop>
-                  <!-- <source src="https://drive.google.com/uc?export=download&id=1iAIJycucpeBiY5V8NpwomiWmMlvB5sv" type="video/mp4"> -->
                   <source
                     muted
                     src="/video/project-main.mp4"
                     type="video/mp4"
                   />
                 </video>
-                <!-- <div class="overlay"></div> -->
+                <div class="overlay"></div>
                 <div class="text-box">
                   <div class="toleft">
                     <div class="one-sentence">
@@ -161,7 +160,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+              </div>
             <div class="first-box word-box">
               <div class="first-img img-wrapper">
                 <img src="/project/main01.webp" alt="" />
@@ -201,18 +200,21 @@
                 <p>FRITZ HANSEN DESIGNS.</p>
               </div>
             </div>
+            <div class="vertical-line"></div>
           </div>
         </section>
 
-        <section class="video-sc">
+        <section class="videoBottom-sc">
+          <div class="videoBottom-inner">
           <div class="vertical-line"></div>
           <div class="horizontal-line"></div>
+        </div>
         </section>
 
         <section class="homeStory-sc">
-          <div class="homeStory-innner">
+          <div class="homeStory-inner">
             <div class="semiCircle-box">
-              <div class="semiCircle-wrapper">
+              <div class="semiCircle-wrapper left">
                 <div class="semiCircle-left">
                   <img src="/semiCircle-left.webp" alt="" />
                 </div>
@@ -253,7 +255,7 @@
               <div class="left-box">
                 <div class="left-title-box">
                   <div class="horizontal-line"></div>
-                  <div class="title">INDOOR</div>
+                  <div class="title"><p>INDOOR</p></div>
                   <div class="horizontal-line"></div>
                 </div>
                 <div class="content">
@@ -285,15 +287,17 @@
                   </div>
                 </div>
                 <div class="double-line-box">
-                  <div class="horizontal-line"></div>
-                  <div class="horizontal-line"></div>
+         
+                    <div class="horizontal-line line"></div>
+                    <div class="horizontal-line line"></div>
+                
                 </div>
               </div>
               <div class="vertical-line"></div>
               <div class="right-box">
                 <div class="right-title-box">
                   <div class="horizontal-line"></div>
-                  <div class="title">OUTDOOR</div>
+                  <div class="title"><p>OUTDOOR</p></div>
                   <div class="horizontal-line"></div>
                 </div>
                 <div class="content">
@@ -330,7 +334,8 @@
                   </div>
                 </div>
                 <div class="double-line-box">
-                  <div class="horizontal-line"></div>
+                  <div class="horizontal-line line"></div>
+                  <div class="viewMore-wrapper">
                   <div class="viewMore">
                     <div><img src="/project/arrow-s.webp" alt="" /></div>
                     <div class="text-box">
@@ -338,7 +343,8 @@
                       <div class="horizontal-line"></div>
                     </div>
                   </div>
-                  <div class="horizontal-line"></div>
+                  </div>
+                  <div class="horizontal-line line"></div>
                 </div>
               </div>
             </div>
@@ -444,7 +450,7 @@
                             <div class="section-title-box">
                               <div
                                 class="section-title-main"
-                                data-swiper-parallax-opacity="0"
+                          
                               >
                                 <p class="section-title">THE</p>
                                 <div class="section-title02">
@@ -472,20 +478,20 @@
                             </div>
                             <p>SCROLL</p>
                             <svg
-                              width="15.18rem"
-                              height="15.18rem"
-                              viewBox="0 0 15.18rem 15.18rem"
-                            >
-                              <circle
-                                cx="7.59rem"
-                                cy="7.59rem"
-                                r="7.59rem"
-                                fill="none"
-                                stroke="white"
-                                stroke-width="0.06rem"
-                              />
-                              <!-- stroke-dasharray="502" stroke-dashoffset="502"  -->
-                            </svg>
+                            width="12.65vw"
+                            height="12.65vw"
+                            viewBox="0 0 12.65vw 12.65vw"
+                          >
+                            <circle
+                              cx="6.325vw"
+                              cy="6.325vw"
+                              r="6.325vw"
+                              fill="none"
+                              stroke="white"
+                              stroke-width="0.05vw"
+                            />
+                            <!-- stroke-dasharray="502" stroke-dashoffset="502"  -->
+                          </svg>
                           </div>
                         </div>
                         <div class="background">
@@ -500,7 +506,7 @@
                         <img src="/project/collab01.jpg" alt="" />
                       </div>
                       <div class="contents">
-                        <div class="fritzHansen" data-swiper-parallax-x="100">
+                        <div class="fritzHansen" data-swiper-parallax-y="400">
                           <p>FRITZ HANSEN</p>
                           <p>X</p>
                         </div>
@@ -776,8 +782,21 @@
                 </div>
               </div>
 
-              <div class="photo-2"></div>
-              <div class="photo-3"></div>
+              <div class="photo-2 fakePhoto">
+                <div>
+                <img src="/project/collab02.jpg" alt="" />
+              </div>
+              </div>
+              <div class="photo-3 fakePhoto">
+                <div>
+                <img src="/project/collab03.jpg" alt="" />
+                </div>
+              </div>
+              <div class="photo-4 fakePhoto">
+                <div>
+                <img src="/project/collab04.jpg" alt="" />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -790,13 +809,17 @@
                 <div class="top-line horizontal-line"></div>
                 <div class="top-words">
                   <div class="left">
-                    <p>Unique Design</p>
+                    <p>
+                      Unique Design
+                    </p>
                   </div>
                   <div class="right">
-                    <p>Premium Quality</p>
+                    <p>
+                      Premium Quality
+                    </p>
                   </div>
                 </div>
-                <div class="bottom-line horizontal-line"></div>
+                <div class="bottom-line horizontal-line"></div> 
               </div>
 
               <div class="small-words-box">
@@ -806,7 +829,7 @@
                   <p>gorous testing during development an</p>
                   <p>d production. Suppliers, materials, and</p>
                   <p>parts must meet these standards to pr</p>
-                  <p>ovide the best experience for our cust</p>
+                  <p>ovide the best experience for our cust</p>  
                   <p>omers worldwide.</p>
                 </div>
               </div>
@@ -814,24 +837,26 @@
 
             <div class="bottom">
               <div class="moving-words-box">
-                <p class="toleft alta">
-                  SET OUR OWN STANDARDS SET OUR OWN STANDARDS SET OUR OWN
-                  STANDARDS
-                </p>
-                <p class="toright">
-                  PREMIUM CHECK QUALITY PREMIUM CHECK QUALITY PREMIUM CHECK
-                  QUALITY
-                </p>
+                <div class="toleft-wrapper">
+                  <div class="toleft alta">
+                    <p>SET  OUR   OWN   STANDARDS   SET  OUR   OWN   STANDARDS   SET  OUR   OWN   STANDARDS</p>
+                  </div>
+                </div>
+                <div class="toright-wrapper">
+                  <div class="toright">
+                    <p>REMIUM  CHECK   QUALITY   PREMIUM  CHECK   QUALITY   PREMIUM  CHECK   QUALITY</p>
+                  </div>
+                </div>
               </div>
               <div class="bottom-vertical vertical-line"></div>
-            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
         <section class="exploring-sc">
           <div class="exploring-sc-inner">
             <div class="semiCircle-box">
-              <div class="semiCircle-wrapper">
+              <div class="semiCircle-wrapper left">
                 <div class="semiCircle-left">
                   <img src="/semiCircle-left.webp" alt="" />
                 </div>
@@ -936,9 +961,33 @@
 
         <section class="bottomVideo-sc">
           <div class="bottomVideo-sc-inner">
+            <div class="top-line horizontal-line"></div>
             <div class="top-line vertical-line"></div>
-            <div class="video">동영상</div>
+            <div class="video-box">
+              <video muted>
+                <source src="/video/project_bottom.mp4" type="video/mp4">
+              </video>
+                         <!-- 재생 버튼 -->  
+                         <div class="button-container" id="playButton">
+                          <svg class="play-button" width="104" height="104" viewBox="0 0 104 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- 원 -->
+                            <circle cx="52" cy="52" r="50" stroke="white" stroke-width="1" fill="none"/>
+                            <!-- 삼각형 -->
+                            <polygon points="42,37 67,52 42,67" fill="white"/>
+                          </svg>
+                      </div>
+      
+                      <div class="button-container pause-button hidden" id="pauseButton">
+                        <svg width="104" height="104" viewBox="0 0 104 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="52" cy="52" r="50" stroke="white" stroke-width="1" fill="none"/>
+                          <rect x="38" y="35" width="10" height="30" fill="white"/>
+                          <rect x="56" y="35" width="10" height="30" fill="white"/>
+                        </svg>
+                      </div>
+    
+            </div>
             <div class="bottom-line vertical-line"></div>
+            <div class="bottom-line horizontal-line"></div>
           </div>
         </section>
 

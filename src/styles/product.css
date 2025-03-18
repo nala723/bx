@@ -1,4 +1,10 @@
 
+/* @keyframes toleft {
+  to{
+     transform:translateX(-117.5vw);
+  }
+} */
+
 .main-sc{
   .main-inner{
     width: 100%;
@@ -16,8 +22,8 @@
       .main-title-inner{
         display: flex;
         gap:1.563vw;
-
         align-items: center;
+
         .text-left{
           display: flex;
           flex-direction: column;
@@ -40,7 +46,11 @@
               grid-template-rows: repeat(2, 1.146vw);
               gap: 0.15vw; 
        
+            }      
+             .diamond{
+            background-color: #686868;
             }
+       
        
           }
       
@@ -59,13 +69,29 @@
     
             
           }
-       
+
+   
         }
         .main-title{
           position: relative;
           top:0;
           left:0;
           overflow: hidden;
+
+          .deco{
+            font-size: 0.781vw;
+            letter-spacing: -0.035em;
+            height: 3.542vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            position: absolute;
+            top:4.167vw;
+            left:20.417vw;
+            color: #686868;
+            overflow: hidden;
+          }
          img{
           width: 73.906vw;
          } 
@@ -84,15 +110,17 @@
         overflow: hidden;
         text-align: end;
         padding-right: 3.125vw;
+        font-size: 0.625vw;
+        color:#686868;
       }
     }
     .main-photos-box{
       .main-photos-box-inner{
         position: relative;
        display: flex;
-      align-items: center;
-      gap:0.729vw;
-      /* overflow: hidden; */
+       align-items: center;
+       gap:0.729vw;
+
       .main00{
         img{width: 23.229vw;}
       }
@@ -121,7 +149,7 @@
 }
 
 .products-sc{
-  overflow: hidden;
+  /* overflow: hidden; */
   width: 100vw;
   .products-sc-inner{
     width: 100%;
@@ -155,7 +183,6 @@
           width: 50%;
           font-size: 1.354vw;
         
-        
         }
         
       }
@@ -175,12 +202,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
       
       }
       .big-chairs,.big-flowers{
       img{
         width: 46.458vw;
-
       }
       }
 
@@ -259,10 +286,13 @@
       padding: 0 0.677vw 2.396vw 0;
       gap:2.188vw;
       .viewMore{
-        display: flex;
+        overflow: hidden;
+        margin-left: 7.967vw;
+        .viewMore-inner{
+         display: flex;
         gap:0.625vw;
         font-size: 0.942vw;
-        padding-left: 7.967vw;
+        /* padding-left: 7.967vw; */
         color: #484848;
         >div >img{
             width: 1.146vw;
@@ -271,7 +301,9 @@
             display: flex;
             flex-direction: column;
             gap:0.158vw;
-}
+          }
+        }
+  
     }
     .detail{
       font-size: 0.885vw;
@@ -323,6 +355,9 @@
          }
     
      
+  }
+  .bottom-line{
+    height: 7.656vw;
   }
 }
 }

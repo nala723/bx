@@ -5,10 +5,8 @@ import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
 // import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollToPlugin } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger, Draggable);
-gsap.registerPlugin(ScrollToPlugin);
 
 // 1. git pull
 // 2. 터미널 창에서 npm i 실행한다.
@@ -212,12 +210,12 @@ ScrollTrigger.create({
 const bigNumberLine = gsap.timeline();
 const bigNumber = gsap.timeline();
 
-bigNumberLine.from(".big-number-inner .horizontal-line", { scale: 0 });
-bigNumberLine.to(".big-number-inner .vertical-line", { scaleY: 1 }, 0);
+bigNumberLine.from(".big-number-inner .horizontal-line", { duration:1, scale: 0 });
+bigNumberLine.to(".big-number-inner .vertical-line", { duration:1, scaleY: 1 }, 0);
 bigNumberLine.to(
   ".big-number-inner .detail *",
   { duration: 5, y: -200, opacity: 0 },
-  0.3
+  1
 );
 
 bigNumber.to(
@@ -228,8 +226,7 @@ bigNumber.to(
 
 ScrollTrigger.create({
   trigger: ".big-number-inner",
-  start: "-=500",
-  // start: 'top top',
+  start: "top 90%",
   end: "+=4000",
   animation: bigNumberLine,
   // pin: true,
@@ -324,7 +321,7 @@ ScrollTrigger.create({
   // pin: true,
   // pinSpacing: false,
   // markers: true,
-  scrub: 1,
+  scrub: 2,
 });
 
 const video = document.getElementById("video");
@@ -475,8 +472,13 @@ wordsMoving.from(
 wordsMoving.from(".moving-words-sc .top-words p", { y: 100 }, 0.5);
 wordsMoving.from(".moving-words-sc .small-words", { y: 200 }, 0.6);
 wordsMoving.from(
-  ".moving-words-sc .toleft,.toright",
-  { stagger: 0.2, y: 400 },
+  ".toleft p,.toright p",
+  {  duration: 1, stagger: 0.2, y: 400 ,  ease: "power2.out",
+    onStart: () => {
+      // 등장 애니메이션이 끝난 후 CSS 애니메이션 추가
+      document.querySelectorAll(".toleft, .toright").forEach(el => {
+        el.classList.add("move")
+      })}},
   0.7
 );
 wordsMoving.to(
@@ -485,29 +487,15 @@ wordsMoving.to(
   0.9
 );
 
-// function createMarquee(target, direction) {
-//   const distance = target.offsetWidth / 2;
-
-//   gsap.to(target, {
-//     x: direction === "left" ? `-${distance}px` : `${distance}px`,
-//     duration: 5,
-//     repeat: -1,
-//     ease: "linear",
-//     modifiers: {
-//       x: gsap.utils.unitize((x) => parseFloat(x) % distance)
-//     }
-//   });
-// }
 
 ScrollTrigger.create({
   trigger: ".moving-words-inner",
   start: "top bottom",
-  end: "+=1800",
+  end: "+=1500",
   animation: wordsMoving,
   // markers: true,
   one: true,
   scrub: 1,
-  onEnter: () => {},
 });
 
 const environment = gsap.timeline();
@@ -594,12 +582,12 @@ const footer = gsap.timeline();
 
 footer.from(".footer-sc .top-line", { duration: 1, scale: 0 });
 footer.from(".footer-sc .title *", { duration: 6, stagger: 2, y: -1000 });
-footer.to(".footer-sc .vertical-line", { scaleY: 1 }, 2);
-footer.from(".footer-sc .diamond", { stagger: 0.2, opacity: 0 });
+footer.to(".footer-sc .vertical-line", {  duration: 6,scaleY: 1 },"-=12");
+footer.from(".footer-sc .diamond", { stagger: 0.5, opacity: 0 },"-=6");
 footer.from(".footer-sc .sns-box,.footer-sc .info,.footer-sc .arrow-box", {
   stagger: 0.2,
   opacity: 0,
-});
+},"-=3");
 
 ScrollTrigger.create({
   trigger: ".footer-sc-inner",
@@ -616,11 +604,7 @@ const scrollToTopButton = document.querySelector(".arrow-box"); // 이미지 선
 scrollToTopButton.addEventListener("click", () => {
   scrollbar.scrollTo(0, 0, 600);
 
-  // gsap.to(window, {
-  //   duration: 1.5,  // 애니메이션 지속 시간 (초)
-  //   scrollTo: { y: 0, autoKill: true }, // 맨 위로 스크롤
-  //   ease: "power2.out" // 부드러운 감속 효과
-  // });
+  
 });
 
 markers();
