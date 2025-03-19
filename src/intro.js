@@ -6,9 +6,9 @@ import './header'
 import { gsap } from "gsap";
 
 
-/* 1. lnb로 메뉴 클릭할때: 인트로는 보이지 않고 바로 홈페이지
+/* 1. 메뉴에서서 home 클릭할때: 인트로는 패스하고고 바로 메인화면으로로 간다.
 
-   2. 로고 클릭했을때는 인트로 보임 */
+   2. 프레츠한센 로고 클릭했을때는 인트로로 간다. */
 
 
 const intro = document.querySelector('.intro');
@@ -105,7 +105,7 @@ enter.addEventListener('click',()=>{
         scale:0.5,
         stagger: {
           // wrap advanced options in an object
-          amount:2,
+          amount:1.2,
           from: 'random',
           ease: 'power2.inOut'
       },

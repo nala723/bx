@@ -9,7 +9,7 @@ const config = defineConfig({
     outDir: "dist",
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "index.html"),
+        home: resolve(__dirname, "index.html"),
         about: resolve(__dirname, "about.html"),
         project: resolve(__dirname, "project.html"),
         product: resolve(__dirname, "product.html"),

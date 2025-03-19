@@ -10,71 +10,54 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// const swiper = new Swiper(".swiper", {
-//   Optional: "parameters",
-//   direction: "vertical",
-//   parallax: true,
-//   // loop: true,
-//   mousewheel: true,
+const swiper = new Swiper(".swiper", {
+  Optional: "parameters",
+  direction: "vertical",
+  parallax: true,
+  // loop: true,
+  mousewheel: true,
 
-//   // If we need pagination
-//   pagination: {
-//     el: ".swiper-pagination",
-//   },
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+  },
 
-//   // Navigation arrows
-//   navigation: {
-//     nextEl: ".swiper-button-next",
-//     prevEl: ".swiper-button-prev",
-//   },
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
 
-//   // And if we need scrollbar
-//   scrollbar: {
-//     el: ".swiper-scrollbar",
-//   },
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
 
-//   on: {
-//     slideChangeTransitionStart: function () {
-//       gsap.from(
-//         ".page01 .contents",
-//         { opacity:0, duration:1, y:200,  ease: "power2.out" },
-//       );
-//       gsap.from(
-//         ".page02 .contents",
-//         { opacity:0, duration:1,y:200,  ease: "power2.out" },
-//       );
-//       gsap.from(
-//         ".page03 .contents",
-//         { opacity:0, duration:1,y:200,  ease: "power2.out" },
-//       );
-//       gsap.from(
-//         ".page04 .contents",
-//         { opacity:0, duration:1,y:200,  ease: "power2.out" },
-//       );
-//     },
-//   },
-// });
-
-// const swiper = new Swiper(".swiper", {
-  
-//   direction: "vertical", // 수직 스크롤
-//   slidesPerView: 1,
-//   parallax: true,
-//   loop: true,
-//   Optional: "parameters",
-//   spaceBetween: 0,
-//   // mousewheel: true, // 마우스 휠로 슬라이드 넘기기
-  
-//   on: {
-//     slideChangeTransitionStart: function () {
-//       gsap.fromTo(
-//         ".swiper-slide .title-box",
-//         { opacity: 0, y: 50 },
-//         { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
-//       );
-//     },
-//   },
-// });
+  on: {
+    slideChangeTransitionStart: function () {
+      gsap.fromTo(
+        ".page01 .contents",
+        { opacity:0, duration:1, y:200,  ease: "power2.out" },
+        { opacity:1, duration:1, y:0,  ease: "power2.out" },
+      );
+      gsap.fromTo(
+        ".page02 .contents",
+        { opacity:0, duration:1, y:200,  ease: "power2.out" },
+        { opacity:1, duration:1, y:0,  ease: "power2.out" },
+      );
+      gsap.fromTo(
+        ".page03 .contents",
+        { opacity:0, duration:1, y:200,  ease: "power2.out" },
+        { opacity:1, duration:1, y:0,  ease: "power2.out" },
+      );
+      gsap.fromTo(
+        ".page04 .contents",
+        { opacity:0, duration:1, y:200,  ease: "power2.out" },
+        { opacity:1, duration:1, y:0,  ease: "power2.out" },
+      );
+    },
+  },
+});
 
 
 
@@ -88,15 +71,12 @@ gsap.registerPlugin(ScrollTrigger);
 const start = gsap.timeline();
 const videoAni = gsap.timeline();
 
-// gsap.set(".video-box-inner", {
-//   clipPath: "inset(20.42% 58.07% 85.75% 25.16%)"
-// });
 start.from(".main-sc img", {
   stagger: 0.2,
   y: 200,
   ease: "power2.out",
 });
-start.from(".main-sc .text", { stagger: 0.2, opacity: 0 });
+start.from(".main-sc .text, .main-sc .video-box", { duration:1,stagger: 0.2, opacity: 0 });
 
 videoAni.to(".main-sc .word-box", {
   duration: 0.1,
@@ -120,7 +100,8 @@ videoAni.from(
       // 등장 애니메이션이 끝난 후 CSS 애니메이션 추가
       document.querySelectorAll(".main-sc .toleft, .main-sc .toright").forEach(el => {
         el.classList.add("move")
-      })}},
+      })}
+    },
   0.3
 );
 
@@ -139,12 +120,12 @@ ScrollTrigger.create({
 const videoBottom = gsap.timeline();
 
 
-videoBottom.to(".videoBottom-sc .vertical-line", { scaleY: 1 });
-videoBottom.from(".videoBottom-sc .horizontal-line", { duration:1,scale: 0 });
+videoBottom.to(".videoBottom-sc .vertical-line", { scaleY: 1 ,ease: "power2.inOut"});
+videoBottom.from(".videoBottom-sc .horizontal-line", { duration:1,scale: 0,ease: "power2.inOut" },"-=0.3");
 
 ScrollTrigger.create({
   trigger: ".videoBottom-inner",
-  start: "top center",
+  start: "top 90%",
   end: "+=500",
   animation: videoBottom,
   // markers: true,
@@ -153,41 +134,41 @@ ScrollTrigger.create({
 
 const homeStory = gsap.timeline();
 
-homeStory.to(".homeStory-sc .top-line", { scaleY: 1 });
-homeStory.from(".homeStory-sc .diamond", { duration: 1, opacity: 0 }, 0.4);
+homeStory.to(".homeStory-sc .top-line", { scaleY: 1 ,ease: "power2.inOut" });
+homeStory.from(".homeStory-sc .diamond", { duration: 1, opacity: 0 ,ease: "power2.inOut" }, 0.4);
 homeStory.to(
   ".homeStory-sc .semiCircle-right,.homeStory-sc .semiCircle-left",
-  { duration: 1, width: "100%" },
+  { duration: 1, width: "100%",ease: "power2.inOut"  },
   0.2
 );
-homeStory.from(".homeStory-sc .section-title-main *", { duration: 2, y: 200 }, 1);
+homeStory.from(".homeStory-sc .section-title-main *", { duration: 1.5, y: 200,ease: "leaner" }, "-=0.5");
 homeStory.from(
   ".homeStory-sc .section-title-box .horizontal-line ",
-  { duration: 2, scale: 0 },
-  2.5
+  { duration: 1, scale: 0 },
+   "-=0.5"
 );
-homeStory.from(".homeStory-sc .section-title-sub", {  y: 200 }, 2.7);
+homeStory.from(".homeStory-sc .section-title-sub", {  duration: 1, y: 200, ease: "leaner" }, "-=0.5");
 homeStory.to(
   ".homeStory-sc .right-title-box .horizontal-line,.homeStory-sc .left-title-box .horizontal-line",
-  { scaleX: 1 },"-=1"
+  {  duration: 1.5,scaleX: 1,ease: "power2.inOut" },"+=1"
 );
-homeStory.from(".homeStory-sc .contents-box .title p", {  y: 50 }, "<");
-homeStory.from(".homeStory01-box img", { duration:2, clipPath: "inset(50%)",ease: "power2.out" },"+=2");
-homeStory.from(".homeStory01-box .bigDeco p", { duration:2, y: 200, opacity:0,ease: "power2.out" });
+homeStory.from(".homeStory-sc .contents-box .title p", {  y: 50 }, "+=0.1");
+homeStory.from(".homeStory01-box img", { duration:1, clipPath: "inset(50%)",ease: "power2.out" },"+=0.1");
+homeStory.from(".homeStory01-box .bigDeco p", { duration:2, y: 200, opacity:0,ease: "power2.out" },"<");
 homeStory.from(".homeStory02-box .smallDeco p", { duration:2, y: 200, opacity:0,ease: "power2.out" },"<");
-homeStory.from(".homeStory02-box img", { duration:2, clipPath: "inset(50%)",ease: "power2.out" },"+=2");
-homeStory.from(".homeStory03-box img", { duration:2, clipPath: "inset(50%)",ease: "power2.out" },"+=2");
-homeStory.from(".homeStory04-box img", { duration:2, clipPath: "inset(50%)",ease: "power2.out" },"+=2");
-homeStory.from(".homeStory04-box .bigDeco p", { duration:2, y: 200, opacity:0,ease: "power2.out" });
+homeStory.from(".homeStory02-box img", {  duration:1, clipPath: "inset(50%)",ease: "power2.out" },"+=0.1");
+homeStory.from(".homeStory03-box img", {  duration:1, clipPath: "inset(50%)",ease: "power2.out" },"+=0.1");
+homeStory.from(".homeStory04-box img", {  duration:1, clipPath: "inset(50%)",ease: "power2.out" },"+=0.1");
+homeStory.from(".homeStory04-box .bigDeco p", { duration:2, y: 200, opacity:0,ease: "power2.out" },"+=0.1");
 homeStory.from(".homeStory05-box .smallDeco p", {  duration:2,y: 200, opacity:0,ease: "power2.out" },"<");
-homeStory.from(".homeStory05-box img", { duration:2, clipPath: "inset(50%)",ease: "power2.out" });
+homeStory.from(".homeStory05-box img", {  duration:1, clipPath: "inset(50%)",ease: "power2.out" },"<");
 
 
 
 ScrollTrigger.create({
   trigger: ".homeStory-inner",
   start: "top center",
-  end: "+=3600",
+  end: "+=2800",
   animation: homeStory,
   // markers: true,
   scrub: 3,
@@ -195,10 +176,10 @@ ScrollTrigger.create({
 
 const longLine =  gsap.timeline();
 
-longLine.to(".homeStory-sc .contents-box .vertical-line", { duration:2,scaleY: 1 });
+longLine.to(".homeStory-sc .contents-box .vertical-line", { duration:20,scaleY: 1 });
 longLine.to(
   ".double-line-box .line",
-  { scaleX: 1 },"+=1"
+  { scaleX: 1 },"-=1"
 );
 longLine.from(
   ".double-line-box .viewMore",
@@ -207,8 +188,8 @@ longLine.from(
 
 ScrollTrigger.create({
   trigger: ".homeStory-inner .contents-box",
-  start: "top 80%",
-  end: "+=3700",
+  start: "top 70%",
+  end: "+=4000",
   animation: longLine,
   // markers: true,
   scrub: 2,
@@ -325,11 +306,11 @@ wordsMoving.from(
 wordsMoving.from(".moving-words-sc .top-words p", { y: 100 }, 0.5);
 wordsMoving.from(".moving-words-sc .small-words", { y: 200 }, 0.6);
 wordsMoving.from(
-  ".toleft p,.toright p",
+  ".moving-words-sc .toleft p,.moving-words-sc .toright p",
   {  duration: 1, stagger: 0.2, y: 400 ,  ease: "power2.out",
     onStart: () => {
       // 등장 애니메이션이 끝난 후 CSS 애니메이션 추가
-      document.querySelectorAll(".toleft, .toright").forEach(el => {
+      document.querySelectorAll(".moving-words-sc .toleft,.moving-words-sc .toright").forEach(el => {
         el.classList.add("move")
       })}},
   0.7

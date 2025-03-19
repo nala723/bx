@@ -161,7 +161,7 @@
 .introduce-sc {
   .introduce-inner {
     width: 100%;
-    height: calc(100vh + 2700px);
+    height: calc(100vh + 2800px);
    /* height: calc(100vh + 140.625vw); */
     padding: 12.292vw 8.958vw 7.708vw 8.958vw;
     display: flex;
