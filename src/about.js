@@ -13,66 +13,6 @@ gsap.registerPlugin(ScrollTrigger, Draggable);
 // 3. npm run dev로 사이트를 연다.
 // 5. 코딩 시작.
 
-let lastScrollY = window.scrollY;
-const header = document.querySelector("header");
-
-window.addEventListener("scroll", () => {
-  let currentScrollY = window.scrollY;
-
-  if (currentScrollY > window.innerHeight) {
-    // 100vh 아래로 내려갔을 때만 실행
-    if (currentScrollY > lastScrollY) {
-      // 아래로 스크롤하면 헤더 숨김
-      gsap.to(header, {
-        y: "-100%",
-        duration: 0.5,
-        ease: "power2.out",
-      });
-    } else {
-      // 위로 스크롤하면 헤더 보이게
-      gsap.to(header, {
-        y: "0%",
-        duration: 0.5,
-        ease: "power2.out",
-      });
-    }
-  }
-
-  lastScrollY = currentScrollY;
-});
-
-const hamburger = document.querySelector(".hamburger");
-const menu = document.querySelector(".menu");
-
-let clicked = false;
-
-hamburger.addEventListener("click", () => {
-  if (!clicked) {
-    gsap.to(menu, { height: "100vh" });
-    gsap.to(".words img", { stagger: 0.1, y: 0 });
-  } else {
-    gsap.to(menu, {
-      height: 0,
-    });
-    gsap.to(".words img", { y: "100%" });
-  }
-  clicked = !clicked;
-});
-
-const wordsItem = document.querySelectorAll(".words > div");
-const photosItem = document.querySelectorAll(".photos > div");
-
-wordsItem.forEach((item, i) => {
-  item.addEventListener("mouseenter", () => {
-    gsap.to(photosItem[i].children, { width: 379, height: 537 });
-    gsap.to(photosItem[i].children.children, { scale: 1 });
-  });
-  item.addEventListener("mouseleave", () => {
-    gsap.to(photosItem[i].children, { width: 0, height: 0 });
-    gsap.to(photosItem[i].children.children, { scale: 1.2 });
-  });
-});
-
 const tl = gsap.timeline();
 tl.to(".photo-box > div", {
   stagger: {
@@ -153,7 +93,6 @@ ScrollTrigger.create({
 });
 
 const introduce = gsap.timeline();
-/* default: duration:0.5 */
 
 introduce.from(".introduce-sc .section-title-main *", { y: 200 }, 0);
 introduce.from(
@@ -220,7 +159,7 @@ bigNumberLine.to(
 
 bigNumber.to(
   ".big-number-inner .big-number",
-  { fontWeight: "bold", scale: 5, rotate: "-45deg" },
+  { fontWeight: "bold", scale: 5, rotate: "-45deg", ease: 'power2.out' },
   0.1
 );
 
@@ -244,9 +183,11 @@ ScrollTrigger.create({
   pin: true,
   pinSpacing: false,
   // markers: true,
-  scrub: 1,
+  scrub: 2,
 });
 
+
+/*마우스 후버하면 세부내역(추후 추가) */
 // const titlesItem = document.querySelectorAll('.product-title > div');
 const historyPhoto = document.querySelectorAll(".history-sc .img-box > div");
 
@@ -261,17 +202,17 @@ historyPhoto.forEach((item, i) => {
     // if (!hoverEnabled) return;
 
     gsap.to(historyPhoto[i].children[0], { scale: 1.2, clipPath: "inset(8%)" });
-    gsap.to(historyPhoto[i].children[0].children[2], { opacity: 1 });
-    gsap.to(historyPhoto[i].children[0].children[0], {
-      opacity: 1,
-      stagger: 0.2,
-    });
+    // gsap.to(historyPhoto[i].children[0].children[2], { opacity: 1 });
+    // gsap.to(historyPhoto[i].children[0].children[0], {
+    //   opacity: 1,
+    //   stagger: 0.2,
+    // });
   });
   item.addEventListener("mouseleave", () => {
     // if (!hoverEnabled) return;
     gsap.to(historyPhoto[i].children[0], { scale: 1, clipPath: "inset(0%)" });
-    gsap.to(historyPhoto[i].children[0].children[2], { opacity: 0 });
-    gsap.to(historyPhoto[i].children[0].children[0], { opacity: 0 });
+    // gsap.to(historyPhoto[i].children[0].children[2], { opacity: 0 });
+    // gsap.to(historyPhoto[i].children[0].children[0], { opacity: 0 });
   });
 });
 
@@ -281,7 +222,7 @@ history.from(".top-content span", { stagger: 0.1, opacity: 0.2 });
 history.from(".history-box .diamond", { stagger: 0.1, opacity: 0 });
 
 history.to(".history-box .first", { duration: 1, scaleY: 1 });
-// history.to('.img1876 img',{scale:1})
+// history.from('.img1876 img',{duration: 5, scale: 0 })
 history.to(".img1876", { duration: 5, clipPath: "inset(0%)" });
 history.from(".year1878", { duration: 6, y: 100 });
 history.from(".first .horizontal-line", { duration: 1, scale: 0 });
@@ -510,72 +451,75 @@ environment.to(
 environment.from(
   ".environment-sc .section-title-main *",
   { duration: 2, y: 200 },
-  1
+  0.8
 );
 environment.from(
   ".environment-sc .section-title-box .horizontal-line ",
   { duration: 2, scale: 0 },
-  2
+  1.5
 );
 environment.from(
   ".environment-sc .section-title-sub",
   { duration: 1, y: 200 },
-  2.3
+  1.7
 );
 environment.from(
   ".environment-sc .detail >div",
   { duration: 2, stagger: 0.2, y: 300 },
-  2.9
+  2
 );
 environment.from(
   ".environment-sc .image-contents img",
   {
-    duration: 2,
+    duration: 1.5,
     stagger: {
-      each: 0.1,
+      each: 0.3,
       from: "center",
     },
     y: 600,
+     ease: "power2.inOut"
   },
-  3.2
+  2.5
 );
 environment.from(
   ".environment-sc .info",
   {
-    duration: 2,
+    duration: 1,
     stagger: {
       each: 0.5,
       from: "center",
     },
     y: 200,
+       ease: "power2.inOut"
   },
-  3.4
+  2.8
 );
 environment.from(
   ".environment-sc .info-line",
   {
-    duration: 2,
+    duration: 1,
     stagger: {
       each: 0.7,
       from: "center",
     },
     scale: 0,
+     ease: "power2.inOut"
   },
-  3.8
+  3
 );
 environment.to(
   ".environment-sc .bottom-line",
   { duration: 1.5, scaleY: 1 },
-  4.6
+  3.2
 );
 
 ScrollTrigger.create({
   trigger: ".environment-sc-inner",
   start: "top center",
-  end: "+=2600",
+  end: "+=2000",
   animation: environment,
   // markers: true,
-  scrub: 1,
+  scrub: 2,
 });
 
 const footer = gsap.timeline();

@@ -1,6 +1,6 @@
 import 'swiper/css/bundle';
 import { markers,scrollbar } from "../lib/smooth";
-
+import "./header";
 import { gsap } from "gsap";
 // import { Draggable } from "gsap/Draggable";
 // import { MotionPathPlugin } from "gsap/MotionPathPlugin";
@@ -41,7 +41,7 @@ start.to('.main-sc .main-photos-box-inner',{duration: 36,x:"-235vw",repeat: -1,e
 photosItem.forEach((item,i)=>{
   item.addEventListener('mouseenter',()=>{
     // if (!hoverEnabled) return; 
-    gsap.to('.default-title img',{opacity:0})
+    gsap.to('.default-title img,.deco',{opacity:0})
     gsap.to(titlesItem[i].children[0],{opacity:1})
     gsap.to(photosItem[i],{zIndex:50})
     gsap.to(photosItem[i].children[0],{scale:1.5})
@@ -51,7 +51,7 @@ photosItem.forEach((item,i)=>{
     gsap.to(photosItem[i],{zIndex:"initial"})
     gsap.to(photosItem[i].children[0],{scale:1})
     gsap.to(titlesItem[i].children[0],{opacity:0})
-    gsap.to('.default-title  img',{opacity:1})
+    gsap.to('.default-title  img,.deco',{opacity:1})
   })
 })
 
@@ -132,6 +132,7 @@ ScrollTrigger.create({
     start: 'top center',
     end: '+=3600',
     animation:  product,
+    once:true,
     // markers: true,
     scrub: 2,
   })

@@ -1,7 +1,7 @@
 import "./styles/project.css";
 import "swiper/css/bundle";
 import { markers,scrollbar } from "../lib/smooth";
-
+import './header'
 import { gsap } from "gsap";
 // import { Draggable } from "gsap/Draggable";
 // import { MotionPathPlugin } from "gsap/MotionPathPlugin";
@@ -83,23 +83,7 @@ gsap.registerPlugin(ScrollTrigger);
 // 3. npm run dev로 사이트를 연다.
 // 5. 코딩 시작.
 
-const hamburger = document.querySelector(".hamburger");
-const menu = document.querySelector(".menu");
 
-let clicked = false;
-
-hamburger.addEventListener("click", () => {
-  if (!clicked) {
-    gsap.to(menu, { height: "100vh" });
-    gsap.to(".words img", { stagger: 0.1, y: 0 });
-  } else {
-    gsap.to(menu, {
-      height: 0,
-    });
-    gsap.to(".words img", { y: "100%" });
-  }
-  clicked = !clicked;
-});
 
 const start = gsap.timeline();
 const videoAni = gsap.timeline();

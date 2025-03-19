@@ -104,21 +104,152 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          div{
-             position: absolute;
-            top: 48.5%;
-            left: 49.5%;
-            transform: translate(-49.5%, -48.5%);
-              img {
-                    
-                      width: 291.458vw;
-                    }
+          .column-box{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+         
+            gap:8.438vw;
+       
 
-          }
+        .column{
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          align-items: center;
+          /* top: 0; */
+          /* left: 0; */
+          gap:4.583vw;
+
+          
+          &.first{
+       
+            div:nth-child(1){
+              top:0;
+            }
+            div:nth-child(2){
+              margin-top: 22.5vw;
+            }  
+            div:nth-child(4){
+             bottom: 42.396vw;
+            }
+            div:nth-child(5){
+              margin-top: 24.375vw;
+              margin-bottom: 21.063vw;
+            }
+
+            div:nth-child(6){
       
+                bottom:10.104vw;
+        
+              }
+
+              
+          }
+  
+          &.third{
+            bottom:2.031vw;
+            div:nth-child(6){
+            bottom:21.302vw;
+            }
+            div:nth-child(5){
+              margin-bottom: 21.042vw;
+            }
+    
+          }
+          &.forth{
+            div:nth-child(1){
+              top:0;
+            }
+            div:nth-child(2){
+              margin-top: 17.292vw;
+              margin-bottom: 15.469vw;
+            }
+            div:nth-child(3){
+              top:27.344vw;
+            }
+            div:nth-child(6){
+              margin-bottom: 17.021vw;
+            }
+            
+            div:nth-child(7){
+              bottom:0;
+            }
+          }
+          &.sixth{
+            margin-top: 9.01vw;
+            div:nth-child(3){
+              margin-bottom: 21.458vw;
+            }
+            div:nth-child(4){
+              top:32.396vw;
+            }
+          }
+
+
+          .img-box{
+            img{
+                      width: 5.521vw;
+            }
+    
+          }
+          .bigImg-box{
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border:0.052vw solid #c7c7c7;
+            left:50%;
+            transform: translateX(-50%);
+            &.orangeChair{
+             width: 15.417vw;
+            height: 22.188vw;
+            
+            img{
+              width: 9.635vw;
+              
+            }
+            }
+
+            &.redChair{
+              width: 15.521vw;
+              height: 18.229vw;
+              img{
+                width: 11.927vw;
+              }
+            }
+            &.smile{
+              width: 13.75vw;
+              height:13.021vw;
+              img{
+                width: 13.333vw;
+              }
+            }
+            &.lamp{
+              width: 13.75vw;
+              height:13.021vw;
+              img{
+                width: 8.854vw;
+              }
+            }
+            &.brownChair{
+              width: 14.896vw;
+              height: 18.958vw;      
+              img{
+                width: 10.104vw;
+              }
+        
+
+            }
+          }
+        }
+     
         }
       
       }
+    }
 
   }
   
