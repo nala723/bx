@@ -13,6 +13,10 @@ section {
 
 /* 헤더 */
 
+.main-page .pin-spacer:nth-child(1) {
+  height: 0 !important;
+}
+
 header {
   width: 100%;
   height: auto;
@@ -20,10 +24,11 @@ header {
   top: 0;
   left: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.7); /* 반투명 배경 */
-  backdrop-filter: blur(0.365vw); /* 블러 효과 */
 
-  .gnb {
+  .header-inner{
+    background: rgba(255, 255, 255, 0.7); /* 반투명 배경 */
+    backdrop-filter: blur(0.365vw); /* 블러 효과 */
+      .gnb {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -74,6 +79,8 @@ header {
       transform: translateY(-6px) rotate(-45deg);
     }
   }
+  }
+
 }
 
 header.hidden {

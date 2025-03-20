@@ -98,6 +98,7 @@
 
 .section01 {
   height: 100vh;
+  flex-direction: column;
   .background {
     opacity: 0;
     width: 100%;
@@ -130,9 +131,6 @@
           align-items: center;
           gap: 4.583vw;
 
-          div {
-            cursor: pointer;
-          }
 
           &.first {
             div:nth-child(1) {
@@ -196,6 +194,12 @@
             img {
               width: 5.521vw;
             }
+    
+          }
+          .img-box:hover{
+            cursor: pointer;
+            scale: 1.1;
+            transition: all 0.5s ease-in-out;
           }
           .bigImg-box {
             position: absolute;
@@ -205,6 +209,11 @@
             border: 0.052vw solid #c7c7c7;
             left: 50%;
             transform: translateX(-50%);
+            img:hover{
+              cursor: pointer;
+              scale: 1.1;
+              transition: all 0.5s ease-in-out;
+            }
             &.orangeChair {
               width: 15.417vw;
               height: 22.188vw;
@@ -225,7 +234,7 @@
               width: 13.75vw;
               height: 13.021vw;
               img {
-                width: 13.333vw;
+                width: 8.646vw;
               }
             }
             &.lamp {

@@ -1,4 +1,4 @@
-import { scrollbar } from "../lib/smooth";
+import { scrollbar,markers } from "../lib/smooth";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 // 1. git pull
@@ -13,8 +13,8 @@ let clicked = false;
 
 hamburger.addEventListener("click", () => {
   if (!clicked) {
-    gsap.set(photosItem[0], { clipPath: "inset(0%)" });
-    gsap.set(photosItem[0].children[0], { scale: 1 });
+    // gsap.set(photosItem[0], { clipPath: "inset(0%)" });
+    // gsap.set(photosItem[0].children[0], { scale: 1 });
 
     gsap.to(menu, { height: "100vh" });
     gsap.to(".words img", { stagger: 0.1, y: 0 });
@@ -72,55 +72,40 @@ menuLinks.forEach((link, index) => {
   });
 });
 
-// let lastScrollY = window.scrollY;
-const header = document.querySelector("header");
+
 
 window.addEventListener("wheel", (e) => {
+ 
   if (e.deltaY >= 0) {
-    gsap.to("header .gnb", {
+    gsap.to(".header-inner", {
       y: -100,
       duration: 0.5,
       ease: "power2.out",
     });
+    // gsap.to(".main-innner",{
+    //   top:"0vw"
+    // },"<")
   } else {
-    gsap.to("header .gnb", {
+    gsap.to(".header-inner", {
       y: 0,
       duration: 0.5,
       ease: "power2.out",
     });
   }
 });
+// 스크롤 이벤트 리스너 추가
 
 ScrollTrigger.create({
   trigger: "header",
   start: "top top",
+  // startTrigger:".introduce-sc",
   endTrigger: ".footer-sc",
   end: "bottom bottom",
   pin: true,
   pinSpacing: false,
+  // markers:true,
   scrub: true,
 });
 
-// 스크롤 이벤트 리스너 추가
-// scrollbar.addListener(({ offset }) => {
-//   let currentScrollY = offset.y; // smooth-scrollbar의 스크롤 값 사용*/
 
-//   if (currentScrollY > window.innerHeight) {
-//     // 100vh 아래로 내려갔을 때만 실행
-//     if (currentScrollY > lastScrollY) {
-//       // 아래로 스크롤하면 헤더 숨김
-//       console.log(currentScrollY, lastScrollY, "헤더숨김");
-
-//     } else {
-//       console.log(currentScrollY, lastScrollY, "헤더보임");
-//       // 위로 스크롤하면 헤더 보이게
-//       gsap.to(header, {
-//         y: 0,
-//         duration: 0.5,
-//         ease: "power2.out",
-//       });
-//     }
-//   }
-
-//   lastScrollY = currentScrollY;
-// });
+markers();

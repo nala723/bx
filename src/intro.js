@@ -5,6 +5,13 @@ import "./header";
 
 import { gsap } from "gsap";
 
+window.addEventListener("DOMContentLoaded", () => {
+  if (window.location.pathname === "/index.html" || window.location.pathname === "/") {
+    document.body.classList.add("main-page");
+  }
+});
+
+
 let FollowBox = ".cursor";
 gsap.set(FollowBox, {
   // xPercent: -50,

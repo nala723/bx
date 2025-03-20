@@ -1,9 +1,4 @@
 
-/* @keyframes toleft {
-  to{
-     transform:translateX(-117.5vw);
-  }
-} */
 
 .main-sc{
   .main-inner{
@@ -11,7 +6,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    padding-top: 8.125vw;
+    padding-top: calc(8.125vw -  5.208vw);
     /* gap:2.76vw; */
     gap:2.708vw;
     .main-title-box{

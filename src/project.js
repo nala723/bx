@@ -35,6 +35,11 @@ const swiper = new Swiper(".swiper", {
 
   on: {
     slideChangeTransitionStart: function () {
+      // gsap.fromTo(
+      //   ".intro-page .content",
+      //   { opacity: 0, duration: 1, y: 200, ease: "power2.out" },
+      //   { opacity: 1, duration: 1, y: 0, ease: "power2.out" }
+      // );
       gsap.fromTo(
         ".page01 .contents",
         { opacity: 0, duration: 1, y: 200, ease: "power2.out" },
@@ -78,7 +83,7 @@ start.from(".main-sc .text, .main-sc .video-box", {
   opacity: 0,
 });
 
-videoAni.to(".main-sc .word-box", {
+videoAni.to(".main-sc .first-box,.main-sc .second-box .text,.second-img,.main-sc .third-box,.main-sc .forth-box", {
   duration: 0.1,
   opacity: 0,
   ease: "power2.out",
@@ -269,7 +274,10 @@ ScrollTrigger.create({
   scrub: 2,
 });
 
-const circleMoving = gsap.timeline();
+const circleMoving = gsap.timeline({
+  paused: true, // 처음에는 애니메이션이 자동 실행되지 않도록 설정
+});
+
 
 gsap.to(".circle-sc .circle-box", {
   rotation: 360, // 360도 회전
@@ -277,97 +285,106 @@ gsap.to(".circle-sc .circle-box", {
   ease: "linear", // 일정한 속도로 회전
   repeat: -1,
 });
-circleMoving.from(".circle-sc .photo-box .background", {
-  duration: 0.2,
-  ease: "power2.out",
-  y: 1500,
-});
-circleMoving.from(
-  ".circle-sc .photo-2 img",
-  { ease: "power2.out", y: 1500 },
-  "-=0.2"
-);
-circleMoving.from(
-  ".circle-sc .photo-3 img",
-  { ease: "power2.out", y: 1500 },
-  "-=0.2"
-);
-circleMoving.from(
-  ".circle-sc .photo-4 img",
-  { ease: "power2.out", y: 1500 },
-  "-=0.2"
-);
-circleMoving.from(".circle-sc .float", { left: "-37.344vw" });
-circleMoving.from(".circle-sc .photo-2 >div", { left: "-12.499vw" }, "<");
-circleMoving.from(".circle-sc .photo-3 >div", { left: "12.346vw" }, "<");
-circleMoving.from(".circle-sc .photo-4 >div", { left: "37.191vw" }, "<");
-circleMoving.to(".circle-sc .float", { scale: 1 });
-circleMoving.to(".intro-page .dark", { opacity: 1, ease: "power2.out" });
-circleMoving.from(".circle-sc .content", {
-  stagger: 0.2,
-  duration: 1,
-  opacity: 0,
-  y: 200,
-  ease: "power2.out",
-  onEnter: () => {
-    circleMoving.to(".swiper", {
-      opacity: 1,
-      duration: 1,
-      pointerEvents: "all",
-    });
-  },
-});
+// ✅ 배경과 이미지들 등장
+circleMoving.from(".circle-sc .photo-box .background", { duration: 0.1, ease: "power2.out", y: 1500 });
+circleMoving.from(".circle-sc .photo-2 img", { ease: "power2.out", y: 1500 }, "-=0.1");
+circleMoving.from(".circle-sc .photo-3 img", { ease: "power2.out", y: 1500 }, "-=0.1");
+circleMoving.from(".circle-sc .photo-4 img", { ease: "power2.out", y: 1500 }, "-=0.1");
 
-// circleMoving.from(".circle-sc .photo img", {
-//   duration: 1,
-//   y: 500,
-//   stagger: 0.2,
-//   ease: "power2.out",
-// });
-// circleMoving.to(".circle-sc .photo", {
-//   left: "50%",
-//   x: "-50%",
-//   ease: "power2.out",
-// });
-// circleMoving.to(".circle-sc .photo01 img", {
-//   scale: 1,
-//   ease: "power2.out",
-// });
-// circleMoving.to(".circle-sc .dark", {
-//   duration: 1,
-//   opacity: 1,
-//   ease: "power2.out",
-// });
-// circleMoving.to(".circle-sc .content", {
-//   duration: 1,
-//   opacity: 1,
-//   ease: "power2.out",
-// });
+// ✅ float 애니메이션
+circleMoving.from(".circle-sc .float", { duration: 0.2, left: "-37.344vw", ease: "power3.inOut" });
+circleMoving.from(".circle-sc .photo-2 >div", { duration: 0.2, left: "-12.499vw", ease: "power3.inOut" }, "<");
+circleMoving.from(".circle-sc .photo-3 >div", { duration: 0.2, left: "12.346vw", ease: "power3.inOut" }, "<");
+circleMoving.from(".circle-sc .photo-4 >div", { duration: 0.2, left: "37.191vw", ease: "power3.inOut" }, "<");
 
+// ✅ float 스케일 애니메이션
+circleMoving.to(".circle-sc .float", { duration: 0.2, scale: 1, ease: "power3.inOut" },);
+
+// ✅ ".intro-page .dark" 등장 (float 애니메이션이 끝난 후)
+circleMoving.to(".intro-page .dark", { 
+  opacity: 1, 
+  ease: "power2.out",
+}, ">"); 
+
+// ✅ 첫 번째 슬라이드 내용 애니메이션
+circleMoving.to(".intro-page",
+  { 
+    duration: 1,
+    onComplete: () => {
+      gsap.to(".swiper", {
+        opacity: 1,
+        duration: 1,
+        pointerEvents: "all",
+        delay:2
+      });
+    }
+  }, 
+  ">"
+);
+
+// ✅ ScrollTrigger 설정
 ScrollTrigger.create({
   trigger: ".circle-inner",
   start: "top top",
-  end: "+=4000",
+  end: "+=20000",
   animation: circleMoving,
-  scrub: 2,
+  scrub: 4,
   onUpdate({ progress }) {
-    console.log(progress);
-
-    if (progress >= 0.3 && progress <= 0.4) {
+   
+    if (progress >= 0 && progress < 0.6) {
+      swiper.slideTo(0); // 첫 번째 슬라이드 (오래 유지)
+          gsap.fromTo(
+        ".intro-page .content",
+        { opacity: 0, y: 200, ease: "power2.out" },
+        { opacity: 1, duration: 1, y: 0, ease: "power2.out" },
+      );
+    }
+    if (progress >= 0.65 && progress < 0.73) {
       swiper.slideTo(1);
-      
-    } else if (progress >= 0.5 && progress <= 0.6) {
+    }
+    if (progress >= 0.74 && progress < 0.82) {
       swiper.slideTo(2);
     }
+    if (progress >= 0.83 && progress < 0.91) {
+      swiper.slideTo(3);
+    }
+    if (progress >= 1) {
+      swiper.slideTo(4);
 
-    if (progress >= 0.61 && progress <= 0.7) {
-      // swiper.slideTo(3);
     }
   },
   pin: true,
-  // markers: true
 });
 
+
+// on: {
+//   slideChangeTransitionStart: function () {
+//     // gsap.fromTo(
+//     //   ".intro-page .content",
+//     //   { opacity: 0, duration: 1, y: 200, ease: "power2.out" },
+//     //   { opacity: 1, duration: 1, y: 0, ease: "power2.out" }
+//     // );
+//     gsap.fromTo(
+//       ".page01 .contents",
+//       { opacity: 0, duration: 1, y: 200, ease: "power2.out" },
+//       { opacity: 1, duration: 1, y: 0, ease: "power2.out" }
+//     );
+//     gsap.fromTo(
+//       ".page02 .contents",
+//       { opacity: 0, duration: 1, y: 200, ease: "power2.out" },
+//       { opacity: 1, duration: 1, y: 0, ease: "power2.out" }
+//     );
+//     gsap.fromTo(
+//       ".page03 .contents",
+//       { opacity: 0, duration: 1, y: 200, ease: "power2.out" },
+//       { opacity: 1, duration: 1, y: 0, ease: "power2.out" }
+//     );
+//     gsap.fromTo(
+//       ".page04 .contents",
+//       { opacity: 0, duration: 1, y: 200, ease: "power2.out" },
+//       { opacity: 1, duration: 1, y: 0, ease: "power2.out" }
+//     );
+//   },
 const wordsMoving = gsap.timeline();
 
 wordsMoving.to(".moving-words-sc .top-vertical", { duration: 1.5, scaleY: 1 });

@@ -18,12 +18,10 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    /* align-items: center;
-        justify-content: center; */
     position: relative;
     top: 0;
     left: 0;
-    padding: 11.93vw 9.21vw 11.93vw 10.31vw;
+    padding: calc(11.93vw -  5.208vw) 9.21vw 11.93vw 10.31vw;
 
     .word-box {
       width: 100%;
@@ -57,14 +55,15 @@
       }
     }
     .second-box {
-      /* padding-left: 1.25vw; */
+      position: relative;
+      align-items: flex-start;
+      gap: 0.05vw;
+      margin-bottom: 1.67vw;
       img {
         width: 73.39vw;
         height: auto;
       }
-      align-items: flex-start;
-      gap: 0.05vw;
-      margin-bottom: 1.67vw;
+
       .text {
         display: flex;
         flex-direction: column;
@@ -82,6 +81,106 @@
           }
         }
       }
+
+      .video-box-inner{
+        z-index: 10;
+       position: absolute;
+       top: -20.722vw;  /* main-inner 의 top, left 패딩값만큼 뺌 */
+       left:-10.93vw;
+       /* clip-path: inset(20.42vw 58.07vw 72.65vw 25.16vw); */
+       clip-path: inset(37.2% 57% 51.2% 25.16%);
+       overflow: hidden;
+       .video-box {
+         position: relative;
+         top: 0;
+         left: 0;
+         video {
+           width: 100vw;
+           height: 100vh;
+           object-fit: cover;
+           transform: scale(1.001);
+         }
+         .text-box {
+           z-index: 30;
+           width: 100%;
+           display: flex;
+           flex-direction: column;
+           justify-content: space-between;
+           position: absolute;
+           height: 5.365vw;
+           left: 0;
+           bottom: 2.5vw;
+ 
+           .toleft,
+           .toright {
+             width: 100%;
+             gap: 2.917vw;
+ 
+             .one-sentence {
+               display: flex;
+               align-items: flex-end;
+               gap: 0.729vw;
+               font-size: 2.917vw;
+               letter-spacing: -0.1em;
+               color: rgba(255, 255, 255, 0.5);
+               line-height: 0.8;
+               white-space: nowrap;
+               .alta {
+                 font-size: 3.229vw;
+                 letter-spacing: -0.05em;
+                 line-height: 0.7;
+               }
+               .x {
+                 font-size: 2.083vw;
+                 letter-spacing: -0.075em;
+                 font-weight: 300;
+                 line-height: 1;
+               }
+             }
+           }
+           .toleft {
+             display: flex;
+             justify-content: flex-start;
+           }
+           .toright {
+             display: flex;
+             justify-content: flex-end;
+           }
+ 
+           .toleft.move{
+             overflow: hidden;
+   
+        
+             p{
+               animation: toLeft 15s infinite linear 0.5s forwards;
+            }
+            
+ 
+           }
+ 
+           
+           .toright.move{
+             overflow: hidden;
+  
+             p{
+                animation: toRight 15s infinite linear 0.5s forwards;
+             }
+         
+        
+      }
+         }
+         .overlay{
+         position: absolute;
+        bottom:0;
+         left:0;
+         z-index: 12;
+         background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1.0) 100%);
+         pointer-events: none;
+         width: 100%;
+         height: 50%;
+        }
+       }
+       }
     }
     .third-box {
       padding-right: 6.46vw;
@@ -106,106 +205,6 @@
       }
     }
 
-    
-      .video-box-inner{
-       z-index: 10;
-      position: absolute;
-      top: 0;
-      left:0;
-      /* clip-path: inset(20.42vw 58.07vw 72.65vw 25.16vw); */
-      clip-path: inset(37% 58.07% 52% 25.16%);
-      overflow: hidden;
-      .video-box {
-        position: relative;
-        top: 0;
-        left: 0;
-        video {
-          width: 100vw;
-          height: 100vh;
-          object-fit: cover;
-          transform: scale(1.001);
-        }
-        .text-box {
-          z-index: 30;
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          position: absolute;
-          height: 5.365vw;
-          left: 0;
-          bottom: 2.5vw;
-
-          .toleft,
-          .toright {
-            width: 100%;
-            gap: 2.917vw;
-
-            .one-sentence {
-              display: flex;
-              align-items: flex-end;
-              gap: 0.729vw;
-              font-size: 2.917vw;
-              letter-spacing: -0.1em;
-              color: rgba(255, 255, 255, 0.5);
-              line-height: 0.8;
-              white-space: nowrap;
-              .alta {
-                font-size: 3.229vw;
-                letter-spacing: -0.05em;
-                line-height: 0.7;
-              }
-              .x {
-                font-size: 2.083vw;
-                letter-spacing: -0.075em;
-                font-weight: 300;
-                line-height: 1;
-              }
-            }
-          }
-          .toleft {
-            display: flex;
-            justify-content: flex-start;
-          }
-          .toright {
-            display: flex;
-            justify-content: flex-end;
-          }
-
-          .toleft.move{
-            overflow: hidden;
-  
-       
-            p{
-              animation: toLeft 15s infinite linear 0.5s forwards;
-           }
-           
-
-          }
-
-          
-          .toright.move{
-            overflow: hidden;
- 
-            p{
-               animation: toRight 15s infinite linear 0.5s forwards;
-            }
-        
-       
-     }
-        }
-        .overlay{
-        position: absolute;
-       bottom:0;
-        left:0;
-        z-index: 12;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1.0) 100%);
-        pointer-events: none;
-        width: 100%;
-        height: 50%;
-       }
-      }
-      }
     }
   }
 
@@ -554,7 +553,7 @@
 }
 
 .circle-sc {
-  padding-bottom: 4000px;
+  padding-bottom: 20000px;
   .circle-inner {
     width: 100%;
     height: 100vh;
