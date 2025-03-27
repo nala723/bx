@@ -73,7 +73,8 @@ const start = gsap.timeline();
 const videoAni = gsap.timeline();
 
 start.from(".main-sc img", {
-  stagger: 0.2,
+  opacity:0,
+  stagger: 0.1,
   y: 200,
   ease: "power2.out",
 });
@@ -81,6 +82,8 @@ start.from(".main-sc .text, .main-sc .video-box", {
   duration: 1,
   stagger: 0.2,
   opacity: 0,
+  ease: "power2.out",
+  
 });
 
 videoAni.to(".main-sc .first-box,.main-sc .second-box .text,.second-img,.main-sc .third-box,.main-sc .forth-box", {
@@ -90,15 +93,15 @@ videoAni.to(".main-sc .first-box,.main-sc .second-box .text,.second-img,.main-sc
 });
 videoAni.to(
   ".main-sc .video-box-inner",
-  { clipPath: "inset(0% 0% 0% 0%)", ease: "power2.out" },
+  { clipPath: "inset(0% 0% 0% 0%)", ease: "power3.inOut" },
   0
 );
-videoAni.from(".main-sc .toleft div", { y: 300, ease: "power2.out" }, 0.2);
+videoAni.from(".main-sc .toleft div", { y: 300, ease: "power3.inOut" }, 0.2);
 videoAni.from(
   ".main-sc .toright div",
   {
     y: 300,
-    ease: "power2.out",
+    ease: "power3.inOut",
     onStart: () => {
       // 등장 애니메이션이 끝난 후 CSS 애니메이션 추가
       document
@@ -113,10 +116,10 @@ videoAni.from(
 
 ScrollTrigger.create({
   trigger: ".main-inner",
-  start: "top top",
+  start: "-100 top",
   end: "+=3000",
   animation: videoAni,
-  scrub: 1,
+  scrub: 2,
   pin: true,
   // markers: true
 });

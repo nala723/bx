@@ -73,18 +73,13 @@ menuLinks.forEach((link, index) => {
 });
 
 
-
 window.addEventListener("wheel", (e) => {
- 
   if (e.deltaY >= 0) {
     gsap.to(".header-inner", {
       y: -100,
       duration: 0.5,
       ease: "power2.out",
     });
-    // gsap.to(".main-innner",{
-    //   top:"0vw"
-    // },"<")
   } else {
     gsap.to(".header-inner", {
       y: 0,
@@ -95,17 +90,22 @@ window.addEventListener("wheel", (e) => {
 });
 // 스크롤 이벤트 리스너 추가
 
-ScrollTrigger.create({
-  trigger: "header",
-  start: "top top",
-  // startTrigger:".introduce-sc",
-  endTrigger: ".footer-sc",
-  end: "bottom bottom",
-  pin: true,
-  pinSpacing: false,
-  // markers:true,
-  scrub: true,
-});
+
+if (!window.location.pathname.includes("index")) {
+   ScrollTrigger.create({
+    trigger: "header",
+    start: "top top",
+      endTrigger: ".footer-sc",
+      end: "bottom bottom",
+      pin: true,
+      pinSpacing: false,
+      // markers:true,
+      scrub: true,
+  });
+}else{
+  console.log('.')
+}
+ 
 
 
 markers();

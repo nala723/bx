@@ -9,13 +9,32 @@ section {
   justify-content: center;
 }
 
-
+/*커스텀 커서*/
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  pointer-events: none;
+  /* display: flex; */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(54, 39, 39, 0.7);
+  backdrop-filter: blur(0.365vw);
+  scale:0.5;
+  /* transition: transform 0.1s ease-in-out; */
+  p{
+    display: none;
+    color:white;
+    position: absolute;
+  }
+}
 
 /* 헤더 */
-
-.main-page .pin-spacer:nth-child(1) {
-  height: 0 !important;
-}
 
 header {
   width: 100%;

@@ -5,27 +5,69 @@ import "./header";
 
 import { gsap } from "gsap";
 
-window.addEventListener("DOMContentLoaded", () => {
-  if (window.location.pathname === "/index.html" || window.location.pathname === "/") {
-    document.body.classList.add("main-page");
+
+// let FollowBox = ".cursor";
+// gsap.set(FollowBox, {
+//   // xPercent: -50,
+//   // yPercent: -50,
+//   scale: 1,
+// });
+
+// window.addEventListener("mousemove", (e) => {
+//   gsap.to(FollowBox, 0.5, {
+//     duration: 1.5,
+//     x: e.clientX,
+//     y: e.clientY,
+//     stagger: 0.15,
+//     // ease: "none",
+//   });
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+  let FollowBox = document.querySelector(".cursor");
+
+  // 🚨 오류 방지: .cursor 요소가 없으면 실행하지 않음
+  if (!FollowBox) {
+    console.error("🚨 Error: .cursor 요소가 존재하지 않습니다!");
+    return;
   }
-});
 
-
-let FollowBox = ".cursor";
-gsap.set(FollowBox, {
-  // xPercent: -50,
-  // yPercent: -50,
-  scale: 1,
-});
-
-window.addEventListener("mousemove", (e) => {
+  // 🔹 마우스 따라다니는 애니메이션
+ window.addEventListener("mousemove", (e) => {
   gsap.to(FollowBox, 0.5, {
     duration: 1.5,
     x: e.clientX,
     y: e.clientY,
     stagger: 0.15,
+    scale:1,
     // ease: "none",
+  });
+});
+
+
+  // 🔹 특정 요소 위에 마우스 올리면 커서 변경
+  const photosItem = document.querySelectorAll(".bigImg-box");
+
+  photosItem.forEach((photo) => {
+    photo.addEventListener("mouseenter", () => {
+      FollowBox.style.display = "flex"; // 커서 보이게 설정
+
+      // 기존 텍스트 숨기고 특정 텍스트만 보이게
+      document.querySelectorAll(".cursor p").forEach((p) => (p.style.display = "none"));
+
+      let targetText;
+      if (photo.classList.contains("smile")) targetText = ".toAbout";
+      if (photo.classList.contains("redChair")) targetText = ".toProject";
+      if (photo.classList.contains("brownChair")) targetText = ".toProduct";
+      if (photo.classList.contains("orangeChair")) targetText = ".toAbout";
+      if (targetText) {
+        document.querySelector(targetText).style.display = "block";
+      }
+    });
+
+    photo.addEventListener("mouseleave", () => {
+      FollowBox.style.display = "none"; // 마우스 벗어나면 다시 숨김
+    });
   });
 });
 
@@ -128,7 +170,7 @@ enter.addEventListener("click", () => {
       intro.remove();
 
       gsap.to(".background", { opacity: 1 });
-      gsap.from(".img-box *,.bigImg-box", {
+      gsap.from(".img-box,.bigImg-box", {
         duration: 1,
         opacity: 0,
         // clipPath:"inset(100%)",
@@ -141,6 +183,8 @@ enter.addEventListener("click", () => {
         },
         ease: "power2.inOut",
       });
+      gsap.fromTo(".drop",{  opacity: 0, scale: 0.5},{  opacity: 1, scale: 1,   ease: "power2.inOut",})
+  
     },
   });
 });

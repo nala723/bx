@@ -1,6 +1,6 @@
 // import './styles/about.css';
 import { markers, scrollbar } from "../lib/smooth";
-import "./header";
+import  "./header";
 import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
 // import { MotionPathPlugin } from "gsap/MotionPathPlugin";
@@ -8,10 +8,44 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger, Draggable);
 
-// 1. git pull
-// 2. 터미널 창에서 npm i 실행한다.
-// 3. npm run dev로 사이트를 연다.
-// 5. 코딩 시작.
+document.addEventListener("DOMContentLoaded", () => {
+  let FollowBox = document.querySelector(".cursor");
+
+  // 🚨 오류 방지: .cursor 요소가 없으면 실행하지 않음
+  if (!FollowBox) {
+    console.error("🚨 Error: .cursor 요소가 존재하지 않습니다!");
+    return;
+  }
+
+  // 🔹 마우스 따라다니는 애니메이션
+ window.addEventListener("mousemove", (e) => {
+  gsap.to(FollowBox, 0.5, {
+    duration: 1.5,
+    x: e.clientX,
+    y: e.clientY,
+    stagger: 0.15,
+    scale:1,
+    // ease: "none",
+  });
+});
+
+
+  // 🔹 특정 요소 위에 마우스 올리면 커서 변경
+  const designersBox = document.querySelector(".designers-box");
+
+
+    designersBox.addEventListener("mouseenter", () => {
+      FollowBox.style.display = "flex"; // 커서 보이게 설정
+      document.querySelector(".cursor p").style.display = "block";
+      // 기존 텍스트 숨기고 특정 텍스트만 보이게
+      // document.querySelector(".cursor p")((p) => (p.style.display = "none"));
+
+      designersBox.addEventListener("mouseleave", () => {
+      FollowBox.style.display = "none"; // 마우스 벗어나면 다시 숨김
+      document.querySelector(".cursor p").style.display = "none";
+    });
+  });
+})
 
 const tl = gsap.timeline();
 tl.to(".photo-box > div", {
@@ -83,7 +117,7 @@ card.to(".blink", { duration: 4, stagger: 0.5, opacity: 0 }, 7);
 
 ScrollTrigger.create({
   trigger: ".main-sc",
-  start: "top top",
+  start: "-100 top",
   end: "+=3000",
   animation: card,
   pin: true,
